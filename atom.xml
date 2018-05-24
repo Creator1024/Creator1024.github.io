@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://534160110.gitee.io/blog/"/>
-  <updated>2018-05-24T13:32:36.508Z</updated>
+  <updated>2018-05-24T13:37:24.252Z</updated>
   <id>http://534160110.gitee.io/blog/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://534160110.gitee.io/blog/2018/05/24/dhcp+ospf/"/>
     <id>http://534160110.gitee.io/blog/2018/05/24/dhcp+ospf/</id>
     <published>2018-05-24T13:31:59.000Z</published>
-    <updated>2018-05-24T13:32:36.508Z</updated>
+    <updated>2018-05-24T13:37:24.252Z</updated>
     
     <content type="html"><![CDATA[<h4 id="HUAWEI-DHCP-OSPF-Test"><a href="#HUAWEI-DHCP-OSPF-Test" class="headerlink" title="HUAWEI DHCP+OSPF Test"></a>HUAWEI DHCP+OSPF Test</h4><pre><code>R1:dhcp enable //全局下先开启DHCP功能ip pool network1 gateway-list 192.168.1.1 network 192.168.1.0 mask 255.255.255.0 excluded-ip-address 192.168.1.2 //排除地址  dns-list 192.168.1.1interface Ethernet0/0/0 ip address 192.168.1.1 255.255.255.0 dhcp select global//该接口收到DHCP报文后直接去DHCP服务器在全局配置的IP地址池中寻找一个可用的地址interface Ethernet0/0/1 ip address 12.1.1.1 255.255.255.0  R2:dhcp enabledhcp server ping packet 10 timeout 100   //配置dhcp服务器分配某个ip之前先探测该ip是否已被网络中pc使用的功能，dhcp服务器会向该ip地址发10个包且每次100ms，无应答才会分配该ip地址给客户端dhcp check dhcp-rate enable           //开启dhcp的速率检测功能开关dhcp check dhcp-rate 90                //检测收到dhcp请求包的速率最大为90个/s，默认100个/s，防止dhcp泛红攻击ip pool network2 gateway-list 192.168.2.1 network 192.168.2.0 mask 255.255.255.0 dns-list 192.168.2.1 static-bind ip-address 192.168.2.10 mac-address 0001-1111-2222 //为固定mac分配固定ipinterface Ethernet0/0/0 ip address 12.1.1.2 255.255.255.0interface Ethernet0/0/1 ip address 23.1.1.2 255.255.255.0 dhcp select globalR3：ehcp enableinterface Ethernet0/0/0 ip address 23.1.1.3 255.255.255.0interface Ethernet0/0/1 ip address 192.168.2.1 255.255.255.0 dhcp select relay //dhcp中继 dhcp relay server-ip 23.1.1.2</code></pre><h5 id="此时PC1可以动态获取到ip地址，而PC2不可以。因为R2没有到达192-168-2-1的路由，无法回应Offer报文"><a href="#此时PC1可以动态获取到ip地址，而PC2不可以。因为R2没有到达192-168-2-1的路由，无法回应Offer报文" class="headerlink" title="此时PC1可以动态获取到ip地址，而PC2不可以。因为R2没有到达192.168.2.1的路由，无法回应Offer报文"></a>此时PC1可以动态获取到ip地址，而PC2不可以。因为R2没有到达192.168.2.1的路由，无法回应Offer报文</h5><pre><code>配置OPSF：  [R1]ospf 1 area 0.0.0.0  network 192.168.1.1 0.0.0.0  network 12.1.1.1 0.0.0.0[R2]ospf 1 area 0.0.0.0  network 12.1.1.2 0.0.0.0  network 23.1.1.2 0.0.0.0  [R3]ospf 1 area 0.0.0.0  network 192.168.2.1 0.0.0.0  network 23.1.1.3 0.0.0.0</code></pre>]]></content>
     
