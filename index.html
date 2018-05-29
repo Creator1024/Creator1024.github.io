@@ -86,14 +86,14 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="検索" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -105,11 +105,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '投稿',
-            PAGES: 'Pages',
-            CATEGORIES: 'カテゴリ',
-            TAGS: 'タグ',
-            UNTITLED: '(Untitled)',
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
         },
         ROOT_URL: '/blog/',
         CONTENT_URL: '/blog/content.json',
@@ -139,7 +139,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="検索" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
     </div>
 
                 </td>
@@ -159,16 +159,16 @@
             <h2 id="name">oneWay</h2>
             <h3 id="title">none</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Xiamen, China</span>
-            <a id="follow" target="_blank" href="https://github.com/Creator1024">フォローする</a>
+            <a id="follow" target="_blank" href="https://github.com/Creator1024">关注我</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 4
-                <span>投稿</span>
+                <span>文章</span>
             </div>
             <div class="article-info-block">
                 4
-                <span>タグ</span>
+                <span>标签</span>
             </div>
         </div>
         
@@ -203,7 +203,7 @@
         
     <div class="widget-wrap" id='categories'>
         <h3 class="widget-title">
-            <span>カテゴリ</span>
+            <span>分类</span>
             &nbsp;
             <a id='allExpand' href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -318,7 +318,7 @@
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title"><span>アーカイブ</span></h3>
+        <h3 class="widget-title"><span>归档</span></h3>
         <div class="widget">
             <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/05/">May 2018</a><span class="archive-list-count">4</span></li></ul>
         </div>
@@ -327,7 +327,7 @@
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title"><span>タグ</span></h3>
+        <h3 class="widget-title"><span>标签</span></h3>
         <div class="widget">
             <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/IPSec/">IPSec</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/dhcp/">dhcp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/huawei/">huawei</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ospf/">ospf</a><span class="tag-list-count">2</span></li></ul>
         </div>
@@ -336,7 +336,7 @@
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title"><span>リンク</span></h3>
+        <h3 class="widget-title"><span>链接</span></h3>
         <div class="widget">
             <ul>
                 
@@ -350,7 +350,7 @@
 </aside>
             
             <section id="main">
-        <article id="post-4C" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-4C" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -382,8 +382,8 @@
                 
                 
     
-        <h1 itemprop="name">
-            <a class="article-title" href="/blog/2018/05/29/4C/">Review</a>
+        <h1 class="article-title" itemprop="name">
+            Review
         </h1>
     
 
@@ -394,38 +394,155 @@
         
         
             
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h5 id="一、数据通信基础（2天）"><a href="#一、数据通信基础（2天）" class="headerlink" title="一、数据通信基础（2天）"></a>一、数据通信基础（2天）</h5><ul>
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#一、数据通信基础（2天）"><span class="toc-number">1.</span> <span class="toc-text">一、数据通信基础（2天）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二、交换基础（2天）"><span class="toc-number">2.</span> <span class="toc-text">二、交换基础（2天）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#三、路由基础（3天）"><span class="toc-number">3.</span> <span class="toc-text">三、路由基础（3天）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt"><span class="toc-number">4.</span> <span class="toc-text">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#四、无线、接入网、通信原理（2天）"><span class="toc-number">5.</span> <span class="toc-text">四、无线、接入网、通信原理（2天）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#五、安全、VPN技术、IPv6（3天）"><span class="toc-number">6.</span> <span class="toc-text">五、安全、VPN技术、IPv6（3天）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#六、云计算、虚拟化、大数据（2天）"><span class="toc-number">7.</span> <span class="toc-text">六、云计算、虚拟化、大数据（2天）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-1"><span class="toc-number">8.</span> <span class="toc-text">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span></a></li></ol>
+                </div>
+            
+        
+        
+            <h5 id="一、数据通信基础（2天）"><a href="#一、数据通信基础（2天）" class="headerlink" title="一、数据通信基础（2天）"></a>一、数据通信基础（2天）</h5><ul>
 <li><p>1、OSI、TCP/IP参考模型</p>
 <ul>
 <li>为何设计分层结构<ul>
 <li>简要说明OSI参考模型每一层的作用</li>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/blog/2018/05/29/4C/#more">Read More</a>
+<li>二者区别以及各自优缺点</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>2、以太网帧头格式</p>
+</li>
+<li><p>3、ARP</p>
+<ul>
+<li>帧格式</li>
+<li>免费ARP</li>
+<li>代理ARP</li>
+<li>ARP相关攻击与防护</li>
+</ul>
+</li>
+<li><p>4、IP（v4）    </p>
+<ul>
+<li>帧格式（帧头每个字段含义）</li>
+<li>回答分片具体流程</li>
+<li>重传超时</li>
+<li>IP相关攻击与防护</li>
+</ul>
+</li>
+<li><p>5、ICMP</p>
+<ul>
+<li>常见的代码含义</li>
+<li>路径MTU发现</li>
+</ul>
+</li>
+<li><p>6、TCP</p>
+<ul>
+<li>帧格式</li>
+<li>拥塞检测、避免</li>
+<li>慢启动</li>
+<li>超时与重传</li>
+<li>基于TCP常见应用端口号</li>
+</ul>
+</li>
+<li>7、UDP<ul>
+<li>帧格式</li>
+<li>基于UDP常见应用端口号</li>
+</ul>
+</li>
+<li>8、DHCP<ul>
+<li>分析整个工作流程的每个数据包</li>
+<li>DHCP攻击与防护</li>
+<li>为特定主机分配IP地址</li>
+</ul>
+</li>
+</ul>
+<h5 id="二、交换基础（2天）"><a href="#二、交换基础（2天）" class="headerlink" title="二、交换基础（2天）"></a>二、交换基础（2天）</h5><ul>
+<li>1、简述交换机工作原理</li>
+<li><p>2、MAC层相关攻击</p>
+<ul>
+<li>泛洪攻击</li>
+<li>中间人攻击</li>
+</ul>
+</li>
+<li><p>3、STP</p>
+<ul>
+<li>BPDU格式，含义</li>
+<li>初始化过程几种状态相关信息</li>
+<li>MSTP概念，配置</li>
+</ul>
+</li>
+<li><p>4、虚拟局域网</p>
+<ul>
+<li>简述VLAN作用</li>
+<li>dot1q协议头</li>
+<li>叙述trunking打标记过程</li>
+<li>VTP<ul>
+<li>三种模式功能</li>
+<li>如何同步</li>
+</ul>
+</li>
+<li>VLAN跳跃攻击原理</li>
+<li>PVLAN相关知识点</li>
+<li>protect-port作用</li>
+</ul>
+</li>
+<li><p>5、EtherChannel</p>
+<ul>
+<li>优点</li>
+<li>协商成功所需条件</li>
+</ul>
+</li>
+<li><p>6、VRRP</p>
+<ul>
+<li>原理</li>
+<li>报文格式</li>
+<li>配置<ul>
+<li>基本配置</li>
+<li>追踪（对象）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>7、 端口安全</li>
+</ul>
+<h5 id="三、路由基础（3天）"><a href="#三、路由基础（3天）" class="headerlink" title="三、路由基础（3天）"></a>三、路由基础（3天）</h5><ul>
+<li>简述路由器的功能</li>
+<li>RIP相关知识</li>
+<li>OSPF相关知识</li>
+<li>BGP相关知识</li>
+<li>重发布<br>…<h5 id="gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt"><a href="#gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt" class="headerlink" title="&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</h5><h5 id="四、无线、接入网、通信原理（2天）"><a href="#四、无线、接入网、通信原理（2天）" class="headerlink" title="四、无线、接入网、通信原理（2天）"></a>四、无线、接入网、通信原理（2天）</h5></li>
+<li>常见无线协议标准<ul>
+<li>a、b、g、n、ac、i</li>
+</ul>
+</li>
+<li>无线路由器安全<br>待补充…</li>
+</ul>
+<h5 id="五、安全、VPN技术、IPv6（3天）"><a href="#五、安全、VPN技术、IPv6（3天）" class="headerlink" title="五、安全、VPN技术、IPv6（3天）"></a>五、安全、VPN技术、IPv6（3天）</h5><ul>
+<li>参考网络安全课本</li>
+<li>简述IPSec、MPLS VPN等基本概念<br>待补充…</li>
+</ul>
+<h5 id="六、云计算、虚拟化、大数据（2天）"><a href="#六、云计算、虚拟化、大数据（2天）" class="headerlink" title="六、云计算、虚拟化、大数据（2天）"></a>六、云计算、虚拟化、大数据（2天）</h5><p>待补充…</p>
+<h5 id="gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-1"><a href="#gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-1" class="headerlink" title="&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</h5><ul>
+<li><p>我只把我认为的要点列出来了，一些基础的知识点要自己去回顾一下，仅当做参考。也可以以自己的方式复习。</p>
+</li>
+<li><p>前三个模块以理解、记忆为主，后三个模块以了解、记忆为主。后四个模块之后会慢慢补充细化的点。</p>
+</li>
+<li><p>以复习自己学过的东西为主，复习过程中多提一些问题，遇到每个知识点，都试试自己能不能简述出来（以后面试也要准备的）。对于自己没学过的东西，大概了解一下，我们大概6月12号左右都能复习完，到时候会一起把所有内容过一遍。</p>
+</li>
+<li><p>今天内（5.29）每个人都制定自己的复习计划（什么时间内复习完哪个模块的内容），以便互相监督。</p>
+</li>
+<li><p>以博客/笔记的方式记录每天复习的内容，每天晚上把自己记录的资料发到讨论组，最好能把问题以及自己的回答，或者不知道该怎么回答比较好的问题写上，互相交流。</p>
+</li>
+<li><p>6月14日前需复习完一轮。</p>
+</li>
+<li><p>有什么问题都可以随时提出来，一起解决。</p>
+</li>
+<li><p>大家有什么不错的资料都可以分享一下。</p>
+</li>
+<li><p>迟早都得准备这一轮复习，我们就趁这次比赛准备认认真真地把R&amp;S基础搞定一下吧！争取通过4c赛区赛！</p>
+</li>
+</ul>
+
             </div>
         
         <footer class="article-footer">
@@ -434,283 +551,33 @@
 </article>
 
 
-
-
-
-
     
-        <article id="post-Ipsec" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/blog/categories/数据通信/">数据通信</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/blog/categories/数据通信/R-S配置/">R&S配置</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/blog/categories/数据通信/R-S配置/华为/">华为</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/blog/tags/IPSec/">IPSec</a>, <a class="tag-link" href="/blog/tags/huawei/">huawei</a>, <a class="tag-link" href="/blog/tags/ospf/">ospf</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/blog/2018/05/25/Ipsec/">
-            <time datetime="2018-05-25T14:25:18.000Z" itemprop="datePublished">2018-05-25</time>
+<nav id="article-nav">
+    
+    
+        <a href="/blog/2018/05/25/Ipsec/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Ipsec</div>
         </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                    </div>
-                
-                
     
-        <h1 itemprop="name">
-            <a class="article-title" href="/blog/2018/05/25/Ipsec/">Ipsec</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><p><img src="https://upload-images.jianshu.io/upload_images/12329802-035c3a2c41fb8a46.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-<h5 id="1-配置基本信息"><a href="#1-配置基本信息" class="headerlink" title="1.配置基本信息"></a>1.配置基本信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AR1和AR3都写入一条默认路由模拟到达外网</span><br><span class="line">[AR1]ip route-static 0.0.0.0 0.0.0.0 12.1.1.2</span><br><span class="line">[AR3]ip route-static 0.0.0.0 0.0.0.0 23.1.1.2</span><br></pre></td></tr></table></figure>
-<h5 id="2-配置IPSec"><a href="#2-配置IPSec" class="headerlink" title="2.配置IPSec"></a>2.配置IPSec</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">总部路由器（AR1）配置</span><br><span class="line">1.抓取内网流量</span><br><span class="line">[AR1]acl 3000</span><br><span class="line">[AR1-acl-adv-3000]rule 5 permit ip source 192.168.1.0 0.0.0.255 destination 192.</span><br><span class="line">168.2.0 0.0.0.255</span><br><span class="line"></span><br><span class="line">2.配置ike</span><br><span class="line">[AR1]ike proposal 1</span><br><span class="line">[AR1-ike-proposal-1]encryption-algorithm 3des-cbc</span><br><span class="line">[AR1-ike-proposal-1]authentication-algorithm md5</span><br><span class="line">[AR1-ike-proposal-1]quit</span><br><span class="line"></span><br><span class="line">[AR1]ike peer AR3 v1</span><br><span class="line">[AR1-ike-peer-AR3]pre-shared-key simple oneWay //设置协商密钥，隧道两端要一致</span><br><span class="line">[AR1-ike-peer-AR3]ike-proposal 1 //调用刚刚创建的ike</span><br><span class="line">[AR1-ike-peer-AR3]remote-address 23.1.1.3 </span><br><span class="line"></span><br><span class="line">3.配置IPSec</span><br><span class="line">[AR1]ipsec proposal 1</span><br><span class="line">[AR1-ipsec-proposal-1]transform ah</span><br><span class="line"></span><br><span class="line">[AR1]ipsec policy Test 10 isakmp</span><br><span class="line">[AR1-ipsec-policy-isakmp-Test-10]security acl 3000 //isakmp使用ike建立ipsec SA</span><br><span class="line">[AR1-ipsec-policy-isakmp-Test-10]ike-peer AR3</span><br><span class="line">[AR1-ipsec-policy-isakmp-Test-10]proposal 1</span><br><span class="line"></span><br><span class="line">4.接口下调用ipsec policy</span><br><span class="line">[AR1-GigabitEthernet0/0/1]ipsec policy Test</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">分部路由器（AR3）配置</span><br><span class="line">[AR3]acl 3000</span><br><span class="line">[AR3-acl-adv-3000]rule 5 permit ip source 192.168.2.0 0.0.0.255 destination 192.</span><br><span class="line">168.1.0 0.0.0.255</span><br><span class="line">[AR3]ike proposal 1</span><br><span class="line">[AR3-ike-proposal-1]encryption-algorithm 3des-cbc </span><br><span class="line">[AR3-ike-proposal-1]authentication-algorithm md5</span><br><span class="line"></span><br><span class="line">[AR3]ike peer AR1 v1</span><br><span class="line">[AR3-ike-peer-AR1]pre-shared-key simple oneWay</span><br><span class="line">[AR3-ike-peer-AR1]ike-proposal 1</span><br><span class="line">[AR3-ike-peer-AR1]remote-address 12.1.1.1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[AR3]ipsec proposal 1</span><br><span class="line">[AR3-ipsec-proposal-1]transform ah</span><br><span class="line"></span><br><span class="line">[AR3]ipsec policy Test 10 isakmp </span><br><span class="line">[AR3-ipsec-policy-isakmp-Test-10]security acl 3000</span><br><span class="line">[AR3-ipsec-policy-isakmp-Test-10]ike-peer AR1</span><br><span class="line">[AR3-ipsec-policy-isakmp-Test-10]proposal 1</span><br><span class="line">[AR3-ipsec-policy-isakmp-Test-10]quit</span><br><span class="line"></span><br><span class="line">[AR3-GigabitEthernet0/0/0]ipsec policy Test</span><br></pre></td></tr></table></figure>
-<h5 id="3-验证结果"><a href="#3-验证结果" class="headerlink" title="3.验证结果"></a>3.验证结果</h5><p>若配置错误，display不会出现以下信息：<br><img src="https://upload-images.jianshu.io/upload_images/12329802-840fdfacd0e501b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png">  </p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/blog/2018/05/25/Ipsec/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
+</nav>
 
 
 
 
 
     
-        <article id="post-dhcp+ospf" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/blog/categories/数据通信/">数据通信</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/blog/categories/数据通信/R-S配置/">R&S配置</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/blog/categories/数据通信/R-S配置/华为/">华为</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/blog/tags/dhcp/">dhcp</a>, <a class="tag-link" href="/blog/tags/huawei/">huawei</a>, <a class="tag-link" href="/blog/tags/ospf/">ospf</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/blog/2018/05/24/dhcp+ospf/">
-            <time datetime="2018-05-24T13:31:59.000Z" itemprop="datePublished">2018-05-24</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/blog/2018/05/24/dhcp+ospf/">dhcp+ospf</a>
-        </h1>
     
 
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h4 id="HUAWEI-DHCP-OSPF-Test"><a href="#HUAWEI-DHCP-OSPF-Test" class="headerlink" title="HUAWEI DHCP+OSPF Test"></a>HUAWEI DHCP+OSPF Test</h4><pre><code>R1:
-dhcp enable //全局下先开启DHCP功能
-ip pool network1
- gateway-list 192.168.1.1
- network 192.168.1.0 mask 255.255.255.0
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/blog/2018/05/24/dhcp+ospf/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
 
 
 
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
 
 
-
-    
-        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/blog/2018/05/15/hello-world/">
-            <time datetime="2018-05-15T03:29:09.533Z" itemprop="datePublished">2018-05-15</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/blog/2018/05/15/hello-world/">Hello World</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/blog/2018/05/15/hello-world/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
 </section>
         </div>
         <footer id="footer">
