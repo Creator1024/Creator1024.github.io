@@ -3,11 +3,11 @@
   <title>oneWay</title>
   
   
-  <link href="/blog/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
-  <link href="http://534160110.gitee.io/blog/"/>
+  <link href="Creator1024.github.io/"/>
   <updated>2018-05-29T07:08:13.106Z</updated>
-  <id>http://534160110.gitee.io/blog/</id>
+  <id>Creator1024.github.io/</id>
   
   <author>
     <name>oneWay</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Review</title>
-    <link href="http://534160110.gitee.io/blog/2018/05/29/4C/"/>
-    <id>http://534160110.gitee.io/blog/2018/05/29/4C/</id>
+    <link href="Creator1024.github.io/2018/05/29/4C/"/>
+    <id>Creator1024.github.io/2018/05/29/4C/</id>
     <published>2018-05-29T07:06:11.000Z</published>
     <updated>2018-05-29T07:08:13.106Z</updated>
     
@@ -36,15 +36,15 @@
     
     </summary>
     
-      <category term="Others" scheme="http://534160110.gitee.io/blog/categories/Others/"/>
+      <category term="Others" scheme="Creator1024.github.io/categories/Others/"/>
     
     
   </entry>
   
   <entry>
     <title>Ipsec</title>
-    <link href="http://534160110.gitee.io/blog/2018/05/25/Ipsec/"/>
-    <id>http://534160110.gitee.io/blog/2018/05/25/Ipsec/</id>
+    <link href="Creator1024.github.io/2018/05/25/Ipsec/"/>
+    <id>Creator1024.github.io/2018/05/25/Ipsec/</id>
     <published>2018-05-25T14:25:18.000Z</published>
     <updated>2018-05-25T14:26:58.569Z</updated>
     
@@ -59,25 +59,25 @@
     
     </summary>
     
-      <category term="数据通信" scheme="http://534160110.gitee.io/blog/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/"/>
+      <category term="数据通信" scheme="Creator1024.github.io/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/"/>
     
-      <category term="R&amp;S配置" scheme="http://534160110.gitee.io/blog/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/R-S%E9%85%8D%E7%BD%AE/"/>
+      <category term="R&amp;S配置" scheme="Creator1024.github.io/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/R-S%E9%85%8D%E7%BD%AE/"/>
     
-      <category term="华为" scheme="http://534160110.gitee.io/blog/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/R-S%E9%85%8D%E7%BD%AE/%E5%8D%8E%E4%B8%BA/"/>
+      <category term="华为" scheme="Creator1024.github.io/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/R-S%E9%85%8D%E7%BD%AE/%E5%8D%8E%E4%B8%BA/"/>
     
     
-      <category term="huawei" scheme="http://534160110.gitee.io/blog/tags/huawei/"/>
+      <category term="huawei" scheme="Creator1024.github.io/tags/huawei/"/>
     
-      <category term="ospf" scheme="http://534160110.gitee.io/blog/tags/ospf/"/>
+      <category term="IPSec" scheme="Creator1024.github.io/tags/IPSec/"/>
     
-      <category term="IPSec" scheme="http://534160110.gitee.io/blog/tags/IPSec/"/>
+      <category term="ospf" scheme="Creator1024.github.io/tags/ospf/"/>
     
   </entry>
   
   <entry>
     <title>dhcp+ospf</title>
-    <link href="http://534160110.gitee.io/blog/2018/05/24/dhcp+ospf/"/>
-    <id>http://534160110.gitee.io/blog/2018/05/24/dhcp+ospf/</id>
+    <link href="Creator1024.github.io/2018/05/24/dhcp+ospf/"/>
+    <id>Creator1024.github.io/2018/05/24/dhcp+ospf/</id>
     <published>2018-05-24T13:31:59.000Z</published>
     <updated>2018-05-25T14:27:03.889Z</updated>
     
@@ -92,25 +92,25 @@
     
     </summary>
     
-      <category term="数据通信" scheme="http://534160110.gitee.io/blog/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/"/>
+      <category term="数据通信" scheme="Creator1024.github.io/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/"/>
     
-      <category term="R&amp;S配置" scheme="http://534160110.gitee.io/blog/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/R-S%E9%85%8D%E7%BD%AE/"/>
+      <category term="R&amp;S配置" scheme="Creator1024.github.io/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/R-S%E9%85%8D%E7%BD%AE/"/>
     
-      <category term="华为" scheme="http://534160110.gitee.io/blog/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/R-S%E9%85%8D%E7%BD%AE/%E5%8D%8E%E4%B8%BA/"/>
+      <category term="华为" scheme="Creator1024.github.io/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/R-S%E9%85%8D%E7%BD%AE/%E5%8D%8E%E4%B8%BA/"/>
     
     
-      <category term="huawei" scheme="http://534160110.gitee.io/blog/tags/huawei/"/>
+      <category term="huawei" scheme="Creator1024.github.io/tags/huawei/"/>
     
-      <category term="dhcp" scheme="http://534160110.gitee.io/blog/tags/dhcp/"/>
+      <category term="ospf" scheme="Creator1024.github.io/tags/ospf/"/>
     
-      <category term="ospf" scheme="http://534160110.gitee.io/blog/tags/ospf/"/>
+      <category term="dhcp" scheme="Creator1024.github.io/tags/dhcp/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://534160110.gitee.io/blog/2018/05/15/hello-world/"/>
-    <id>http://534160110.gitee.io/blog/2018/05/15/hello-world/</id>
+    <link href="Creator1024.github.io/2018/05/15/hello-world/"/>
+    <id>Creator1024.github.io/2018/05/15/hello-world/</id>
     <published>2018-05-15T03:29:09.533Z</published>
     <updated>2018-05-15T03:29:09.533Z</updated>
     
