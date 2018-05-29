@@ -3,23 +3,27 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Review | oneWay</title>
+    <title>LAN | oneWay</title>
     
     
-        <meta name="keywords" content="Review" />
+        <meta name="keywords" content="reviewDay1" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="一、数据通信基础（2天） 1、OSI、TCP/IP参考模型  为何设计分层结构 简要说明OSI参考模型每一层的作用 二者区别以及各自优缺点     2、以太网帧头格式  3、ARP  帧格式 免费ARP 代理ARP ARP相关攻击与防护   4、IP（v4）      帧格式（帧头每个字段含义） 回答分片具体流程 重传超时 IP相关攻击与防护   5、ICMP  常见的代码含义 路径MTU发现">
+    <meta name="description" content="1.LAN基础 局域网指的是有限区域内相对距离较短的计算机和其他组件的网络，主要包含了物理层和数据链路层，一般我们接触到的局域网都是以太网组成的。  以太网发展历程 1234567891011121314151617181920211973年：      以太网（Xerox公司）1980年：      DIX 标准版（以太网II）【Digital Equipment Corp，Intel，Xero">
+<meta name="keywords" content="reviewDay1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Review">
-<meta property="og:url" content="http://yoursite.com/2018/05/29/4C/index.html">
+<meta property="og:title" content="LAN">
+<meta property="og:url" content="http://yoursite.com/2018/05/29/LAN/index.html">
 <meta property="og:site_name" content="oneWay">
-<meta property="og:description" content="一、数据通信基础（2天） 1、OSI、TCP/IP参考模型  为何设计分层结构 简要说明OSI参考模型每一层的作用 二者区别以及各自优缺点     2、以太网帧头格式  3、ARP  帧格式 免费ARP 代理ARP ARP相关攻击与防护   4、IP（v4）      帧格式（帧头每个字段含义） 回答分片具体流程 重传超时 IP相关攻击与防护   5、ICMP  常见的代码含义 路径MTU发现">
+<meta property="og:description" content="1.LAN基础 局域网指的是有限区域内相对距离较短的计算机和其他组件的网络，主要包含了物理层和数据链路层，一般我们接触到的局域网都是以太网组成的。  以太网发展历程 1234567891011121314151617181920211973年：      以太网（Xerox公司）1980年：      DIX 标准版（以太网II）【Digital Equipment Corp，Intel，Xero">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-29T07:08:13.106Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-489aa87915cf0214.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-eb829973b19a75ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-05-29T14:56:35.783Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Review">
-<meta name="twitter:description" content="一、数据通信基础（2天） 1、OSI、TCP/IP参考模型  为何设计分层结构 简要说明OSI参考模型每一层的作用 二者区别以及各自优缺点     2、以太网帧头格式  3、ARP  帧格式 免费ARP 代理ARP ARP相关攻击与防护   4、IP（v4）      帧格式（帧头每个字段含义） 回答分片具体流程 重传超时 IP相关攻击与防护   5、ICMP  常见的代码含义 路径MTU发现">
+<meta name="twitter:title" content="LAN">
+<meta name="twitter:description" content="1.LAN基础 局域网指的是有限区域内相对距离较短的计算机和其他组件的网络，主要包含了物理层和数据链路层，一般我们接触到的局域网都是以太网组成的。  以太网发展历程 1234567891011121314151617181920211973年：      以太网（Xerox公司）1980年：      DIX 标准版（以太网II）【Digital Equipment Corp，Intel，Xero">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/12329802-489aa87915cf0214.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
     
 
     
@@ -217,13 +221,13 @@
         
         
          <ul class="unstyled" id="tree" > 
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             Others
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2018/05/29/4C/">Review</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/05/29/4C/">Review</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -271,20 +275,20 @@
                      </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             数通基础
                         </a>
                          <ul class="unstyled" id="tree" > 
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             基本概念
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/05/29/LAN/">LAN</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2018/05/29/LAN/">LAN</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -377,7 +381,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-4C" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-LAN" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -387,15 +391,20 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Others/">Others</a>
+        <a class="article-category-link" href="/categories/数通基础/">数通基础</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数通基础/基本概念/">基本概念</a>
     </div>
 
                         
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/reviewDay1/">reviewDay1</a>
+    </div>
+
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/05/29/4C/">
-            <time datetime="2018-05-29T07:06:11.000Z" itemprop="datePublished">2018-05-29</time>
+        <a href="/2018/05/29/LAN/">
+            <time datetime="2018-05-29T14:54:48.000Z" itemprop="datePublished">2018-05-29</time>
         </a>
     </div>
 
@@ -410,7 +419,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Review
+            LAN
         </h1>
     
 
@@ -423,151 +432,55 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#一、数据通信基础（2天）"><span class="toc-number">1.</span> <span class="toc-text">一、数据通信基础（2天）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二、交换基础（2天）"><span class="toc-number">2.</span> <span class="toc-text">二、交换基础（2天）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#三、路由基础（3天）"><span class="toc-number">3.</span> <span class="toc-text">三、路由基础（3天）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt"><span class="toc-number">4.</span> <span class="toc-text">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#四、无线、接入网、通信原理（2天）"><span class="toc-number">5.</span> <span class="toc-text">四、无线、接入网、通信原理（2天）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#五、安全、VPN技术、IPv6（3天）"><span class="toc-number">6.</span> <span class="toc-text">五、安全、VPN技术、IPv6（3天）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#六、云计算、虚拟化、大数据（2天）"><span class="toc-number">7.</span> <span class="toc-text">六、云计算、虚拟化、大数据（2天）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-1"><span class="toc-number">8.</span> <span class="toc-text">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-LAN基础"><span class="toc-number">1.</span> <span class="toc-text">1.LAN基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-MAC地址"><span class="toc-number">2.</span> <span class="toc-text">2.MAC地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-帧格式"><span class="toc-number">3.</span> <span class="toc-text">3.帧格式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#以太网帧格式"><span class="toc-number">3.1.</span> <span class="toc-text">以太网帧格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#IEEE802-3帧格式"><span class="toc-number">3.2.</span> <span class="toc-text">IEEE802.3帧格式</span></a></li></ol></li></ol>
                 </div>
             
         
         
-            <h5 id="一、数据通信基础（2天）"><a href="#一、数据通信基础（2天）" class="headerlink" title="一、数据通信基础（2天）"></a>一、数据通信基础（2天）</h5><ul>
-<li><p>1、OSI、TCP/IP参考模型</p>
+            <h4 id="1-LAN基础"><a href="#1-LAN基础" class="headerlink" title="1.LAN基础"></a>1.LAN基础</h4><ul>
+<li><p>局域网指的是有限区域内相对距离较短的计算机和其他组件的网络，主要包含了物理层和数据链路层，一般我们接触到的局域网都是以太网组成的。</p>
+</li>
+<li><p>以太网发展历程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">1973年：      以太网（Xerox公司）</span><br><span class="line"></span><br><span class="line">1980年：      DIX 标准版（以太网II）【Digital Equipment Corp，Intel，Xerox】  </span><br><span class="line"></span><br><span class="line">1983年：      10 BASE-5   --&gt;10Mb/s 粗同轴电缆以太网(IEEE802.3)  </span><br><span class="line"></span><br><span class="line">1985年：      10 BASE-2   --&gt;10Mb/s 细同轴电缆以太网(IEEE802.3a)  </span><br><span class="line"></span><br><span class="line">1990年：      10 BASE-T   --&gt;10Mb/s双绞线(TP)以太网（IEEE802.3i）【twisted-pair】  </span><br><span class="line"></span><br><span class="line">1993年：      10 BASE-F   --&gt;10Mb/s光纤以太网（IEEE802.3j）【fiber】  </span><br><span class="line"></span><br><span class="line">1995年：      100 BASE-xx  --&gt; 快速以太网：100Mb/s双绞线和光纤以太网（IEEE802.3u）  </span><br><span class="line"></span><br><span class="line">1998年：      1000 BASE-X --&gt;千兆光纤以太网（IEEE802.3z）  </span><br><span class="line"></span><br><span class="line">1999年：      1000 BASE-T --&gt;千兆双绞线以太网（IEEE802.3ab）      </span><br><span class="line"></span><br><span class="line">2002年 :       10G BASE-xx  --&gt;10千兆光纤以太网（IEEE 802.3ae）     </span><br><span class="line"></span><br><span class="line">2006年 :       10G BASE-T  --&gt;10千兆双绞线以太网(IEEE 802.3an)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以太网中的流量主要包括：</p>
 <ul>
-<li>为何设计分层结构<ul>
-<li>简要说明OSI参考模型每一层的作用</li>
-<li>二者区别以及各自优缺点</li>
+<li>数据流量（用户发的流量，以太网）</li>
+<li>控制流量（交换机之间交互的流量，IEEE802.3)</li>
 </ul>
 </li>
 </ul>
+<h4 id="2-MAC地址"><a href="#2-MAC地址" class="headerlink" title="2.MAC地址"></a>2.MAC地址</h4><ul>
+<li>MAC地址组成（烧录地址）<ul>
+<li>24位（3字节）OUI【组织唯一标识符】+24位（3字节）厂商分配的网卡，接口。</li>
+<li>Cisco设备：0000.0000.0000</li>
+<li>Linux: 00:00:00:00:00:00</li>
+<li>Windows: 00-00-00-00-00-00</li>
+</ul>
 </li>
-<li><p>2、以太网帧头格式</p>
-</li>
-<li><p>3、ARP</p>
+</ul>
 <ul>
-<li>帧格式</li>
-<li>免费ARP</li>
-<li>代理ARP</li>
-<li>ARP相关攻击与防护</li>
+<li><a href="https://www.macvendorlookup.com/" target="_blank" rel="noopener">查询设备mac地址信息</a><h4 id="3-帧格式"><a href="#3-帧格式" class="headerlink" title="3.帧格式"></a>3.帧格式</h4></li>
 </ul>
-</li>
-<li><p>4、IP（v4）    </p>
+<p>前导码和帧开始符无法在包嗅探程序中显示。这些信息会在OSI第1层被网卡处理掉，而不会传入嗅探程序采集数据的OSI第2层。也存在OSI物理层的嗅探工具以显示这些前导码和帧开始符，但这些设备大多昂贵，多用于检测硬件相关的故障。</p>
+<h5 id="以太网帧格式"><a href="#以太网帧格式" class="headerlink" title="以太网帧格式"></a>以太网帧格式</h5><p><img src="https://upload-images.jianshu.io/upload_images/12329802-489aa87915cf0214.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <ul>
-<li>帧格式（帧头每个字段含义）</li>
-<li>回答分片具体流程</li>
-<li>重传超时</li>
-<li>IP相关攻击与防护</li>
+<li>Preamble（前导码）：用于帧同步</li>
+<li>Type：标识上层协议<ul>
+<li>0x0800   ipv4</li>
+<li>0x0806   arp</li>
+<li>0x8100   IEEE802.1Q(dot1q)</li>
+<li>0x86DD  ipv6</li>
+<li>0x8864   PPPoE </li>
+<li>0x8847   MPLSLabel </li>
 </ul>
 </li>
-<li><p>5、ICMP</p>
+</ul>
+<h5 id="IEEE802-3帧格式"><a href="#IEEE802-3帧格式" class="headerlink" title="IEEE802.3帧格式"></a>IEEE802.3帧格式</h5><p><img src="https://upload-images.jianshu.io/upload_images/12329802-eb829973b19a75ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <ul>
-<li>常见的代码含义</li>
-<li>路径MTU发现</li>
-</ul>
-</li>
-<li><p>6、TCP</p>
-<ul>
-<li>帧格式</li>
-<li>拥塞检测、避免</li>
-<li>慢启动</li>
-<li>超时与重传</li>
-<li>基于TCP常见应用端口号</li>
-</ul>
-</li>
-<li>7、UDP<ul>
-<li>帧格式</li>
-<li>基于UDP常见应用端口号</li>
-</ul>
-</li>
-<li>8、DHCP<ul>
-<li>分析整个工作流程的每个数据包</li>
-<li>DHCP攻击与防护</li>
-<li>为特定主机分配IP地址</li>
-</ul>
-</li>
-</ul>
-<h5 id="二、交换基础（2天）"><a href="#二、交换基础（2天）" class="headerlink" title="二、交换基础（2天）"></a>二、交换基础（2天）</h5><ul>
-<li>1、简述交换机工作原理</li>
-<li><p>2、MAC层相关攻击</p>
-<ul>
-<li>泛洪攻击</li>
-<li>中间人攻击</li>
-</ul>
-</li>
-<li><p>3、STP</p>
-<ul>
-<li>BPDU格式，含义</li>
-<li>初始化过程几种状态相关信息</li>
-<li>MSTP概念，配置</li>
-</ul>
-</li>
-<li><p>4、虚拟局域网</p>
-<ul>
-<li>简述VLAN作用</li>
-<li>dot1q协议头</li>
-<li>叙述trunking打标记过程</li>
-<li>VTP<ul>
-<li>三种模式功能</li>
-<li>如何同步</li>
-</ul>
-</li>
-<li>VLAN跳跃攻击原理</li>
-<li>PVLAN相关知识点</li>
-<li>protect-port作用</li>
-</ul>
-</li>
-<li><p>5、EtherChannel</p>
-<ul>
-<li>优点</li>
-<li>协商成功所需条件</li>
-</ul>
-</li>
-<li><p>6、VRRP</p>
-<ul>
-<li>原理</li>
-<li>报文格式</li>
-<li>配置<ul>
-<li>基本配置</li>
-<li>追踪（对象）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>7、 端口安全</li>
-</ul>
-<h5 id="三、路由基础（3天）"><a href="#三、路由基础（3天）" class="headerlink" title="三、路由基础（3天）"></a>三、路由基础（3天）</h5><ul>
-<li>简述路由器的功能</li>
-<li>RIP相关知识</li>
-<li>OSPF相关知识</li>
-<li>BGP相关知识</li>
-<li>重发布<br>…<h5 id="gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt"><a href="#gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt" class="headerlink" title="&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</h5><h5 id="四、无线、接入网、通信原理（2天）"><a href="#四、无线、接入网、通信原理（2天）" class="headerlink" title="四、无线、接入网、通信原理（2天）"></a>四、无线、接入网、通信原理（2天）</h5></li>
-<li>常见无线协议标准<ul>
-<li>a、b、g、n、ac、i</li>
-</ul>
-</li>
-<li>无线路由器安全<br>待补充…</li>
-</ul>
-<h5 id="五、安全、VPN技术、IPv6（3天）"><a href="#五、安全、VPN技术、IPv6（3天）" class="headerlink" title="五、安全、VPN技术、IPv6（3天）"></a>五、安全、VPN技术、IPv6（3天）</h5><ul>
-<li>参考网络安全课本</li>
-<li>简述IPSec、MPLS VPN等基本概念<br>待补充…</li>
-</ul>
-<h5 id="六、云计算、虚拟化、大数据（2天）"><a href="#六、云计算、虚拟化、大数据（2天）" class="headerlink" title="六、云计算、虚拟化、大数据（2天）"></a>六、云计算、虚拟化、大数据（2天）</h5><p>待补充…</p>
-<h5 id="gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-1"><a href="#gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-1" class="headerlink" title="&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</h5><ul>
-<li><p>我只把我认为的要点列出来了，一些基础的知识点要自己去回顾一下，仅当做参考。也可以以自己的方式复习。</p>
-</li>
-<li><p>前三个模块以理解、记忆为主，后三个模块以了解、记忆为主。后四个模块之后会慢慢补充细化的点。</p>
-</li>
-<li><p>以复习自己学过的东西为主，复习过程中多提一些问题，遇到每个知识点，都试试自己能不能简述出来（以后面试也要准备的）。对于自己没学过的东西，大概了解一下，我们大概6月12号左右都能复习完，到时候会一起把所有内容过一遍。</p>
-</li>
-<li><p>今天内（5.29）每个人都制定自己的复习计划（什么时间内复习完哪个模块的内容），以便互相监督。</p>
-</li>
-<li><p>以博客/笔记的方式记录每天复习的内容，每天晚上把自己记录的资料发到讨论组，最好能把问题以及自己的回答，或者不知道该怎么回答比较好的问题写上，互相交流。</p>
-</li>
-<li><p>6月14日前需复习完一轮。</p>
-</li>
-<li><p>有什么问题都可以随时提出来，一起解决。</p>
-</li>
-<li><p>大家有什么不错的资料都可以分享一下。</p>
-</li>
-<li><p>迟早都得准备这一轮复习，我们就趁这次比赛准备认认真真地把R&amp;S基础搞定一下吧！争取通过4c赛区赛！</p>
-</li>
+<li>Preamble：同以太网帧</li>
+<li>SOF（帧首定界符）：用于标识一个帧的开始</li>
+<li>dot1q的标签插在Source和Type之间</li>
 </ul>
 
             </div>
@@ -581,19 +494,10 @@
     
 <nav id="article-nav">
     
-        <a href="/2018/05/29/Q-A分层模型/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    分层模型
-                
-            </div>
-        </a>
     
-    
-        <a href="/2018/05/25/Ipsec/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/05/29/Q-A分层模型/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Ipsec</div>
+            <div class="article-nav-title">分层模型</div>
         </a>
     
 </nav>
