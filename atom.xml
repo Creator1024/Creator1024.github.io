@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-29T14:56:35.783Z</updated>
+  <updated>2018-05-29T15:03:29.663Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2018/05/29/LAN/"/>
     <id>http://yoursite.com/2018/05/29/LAN/</id>
     <published>2018-05-29T14:54:48.000Z</published>
-    <updated>2018-05-29T14:56:35.783Z</updated>
+    <updated>2018-05-29T15:03:29.663Z</updated>
     
     <content type="html"><![CDATA[<h4 id="1-LAN基础"><a href="#1-LAN基础" class="headerlink" title="1.LAN基础"></a>1.LAN基础</h4><ul><li><p>局域网指的是有限区域内相对距离较短的计算机和其他组件的网络，主要包含了物理层和数据链路层，一般我们接触到的局域网都是以太网组成的。</p></li><li><p>以太网发展历程</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">1973年：      以太网（Xerox公司）</span><br><span class="line"></span><br><span class="line">1980年：      DIX 标准版（以太网II）【Digital Equipment Corp，Intel，Xerox】  </span><br><span class="line"></span><br><span class="line">1983年：      10 BASE-5   --&gt;10Mb/s 粗同轴电缆以太网(IEEE802.3)  </span><br><span class="line"></span><br><span class="line">1985年：      10 BASE-2   --&gt;10Mb/s 细同轴电缆以太网(IEEE802.3a)  </span><br><span class="line"></span><br><span class="line">1990年：      10 BASE-T   --&gt;10Mb/s双绞线(TP)以太网（IEEE802.3i）【twisted-pair】  </span><br><span class="line"></span><br><span class="line">1993年：      10 BASE-F   --&gt;10Mb/s光纤以太网（IEEE802.3j）【fiber】  </span><br><span class="line"></span><br><span class="line">1995年：      100 BASE-xx  --&gt; 快速以太网：100Mb/s双绞线和光纤以太网（IEEE802.3u）  </span><br><span class="line"></span><br><span class="line">1998年：      1000 BASE-X --&gt;千兆光纤以太网（IEEE802.3z）  </span><br><span class="line"></span><br><span class="line">1999年：      1000 BASE-T --&gt;千兆双绞线以太网（IEEE802.3ab）      </span><br><span class="line"></span><br><span class="line">2002年 :       10G BASE-xx  --&gt;10千兆光纤以太网（IEEE 802.3ae）     </span><br><span class="line"></span><br><span class="line">2006年 :       10G BASE-T  --&gt;10千兆双绞线以太网(IEEE 802.3an)</span><br></pre></td></tr></table></figure></li><li><p>以太网中的流量主要包括：</p><ul><li>数据流量（用户发的流量，以太网）</li><li>控制流量（交换机之间交互的流量，IEEE802.3)</li></ul></li></ul><h4 id="2-MAC地址"><a href="#2-MAC地址" class="headerlink" title="2.MAC地址"></a>2.MAC地址</h4><ul><li>MAC地址组成（烧录地址）<ul><li>24位（3字节）OUI【组织唯一标识符】+24位（3字节）厂商分配的网卡，接口。</li><li>Cisco设备：0000.0000.0000</li><li>Linux: 00:00:00:00:00:00</li><li>Windows: 00-00-00-00-00-00</li></ul></li></ul><ul><li><a href="https://www.macvendorlookup.com/" target="_blank" rel="noopener">查询设备mac地址信息</a><h4 id="3-帧格式"><a href="#3-帧格式" class="headerlink" title="3.帧格式"></a>3.帧格式</h4></li></ul><p>前导码和帧开始符无法在包嗅探程序中显示。这些信息会在OSI第1层被网卡处理掉，而不会传入嗅探程序采集数据的OSI第2层。也存在OSI物理层的嗅探工具以显示这些前导码和帧开始符，但这些设备大多昂贵，多用于检测硬件相关的故障。</p><h5 id="以太网帧格式"><a href="#以太网帧格式" class="headerlink" title="以太网帧格式"></a>以太网帧格式</h5><p><img src="https://upload-images.jianshu.io/upload_images/12329802-489aa87915cf0214.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p><ul><li>Preamble（前导码）：用于帧同步</li><li>Type：标识上层协议<ul><li>0x0800   ipv4</li><li>0x0806   arp</li><li>0x8100   IEEE802.1Q(dot1q)</li><li>0x86DD  ipv6</li><li>0x8864   PPPoE </li><li>0x8847   MPLSLabel </li></ul></li></ul><h5 id="IEEE802-3帧格式"><a href="#IEEE802-3帧格式" class="headerlink" title="IEEE802.3帧格式"></a>IEEE802.3帧格式</h5><p><img src="https://upload-images.jianshu.io/upload_images/12329802-eb829973b19a75ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p><ul><li>Preamble：同以太网帧</li><li>SOF（帧首定界符）：用于标识一个帧的开始</li><li>dot1q的标签插在Source和Type之间</li></ul>]]></content>
     
@@ -35,9 +35,9 @@
     
     </summary>
     
-      <category term="数通基础" scheme="http://yoursite.com/categories/%E6%95%B0%E9%80%9A%E5%9F%BA%E7%A1%80/"/>
+      <category term="数据通信" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/"/>
     
-      <category term="基本概念" scheme="http://yoursite.com/categories/%E6%95%B0%E9%80%9A%E5%9F%BA%E7%A1%80/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
+      <category term="基本概念" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
     
     
       <category term="reviewDay1" scheme="http://yoursite.com/tags/reviewDay1/"/>
@@ -49,9 +49,18 @@
     <link href="http://yoursite.com/2018/05/29/Q-A%E5%88%86%E5%B1%82%E6%A8%A1%E5%9E%8B/"/>
     <id>http://yoursite.com/2018/05/29/Q-A分层模型/</id>
     <published>2018-05-29T14:54:30.000Z</published>
-    <updated>2018-05-29T14:58:11.845Z</updated>
+    <updated>2018-05-29T15:03:05.422Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h5><ul><li><p>网络通信为何要设计分层模型</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">计算机之间的通信需要规定协议。20世纪80年代之前，不同品牌的计算机一般都会运行厂商自己定义的一套协议，这就导致了不同品牌的计算机之间通信出现了问题。</span><br><span class="line">所以在1985年ISO定义了OSI参考模型，大家都遵守这些统一规定的协议就解决了不同计算机之间互联的问题。</span><br><span class="line">整个网络体系结构是十分复杂的，通过分层的方法，降低了其复杂度。</span><br><span class="line">层与层之间提供标准化的接口，降低耦合性，能够专注模块化地设计。</span><br></pre></td></tr></table></figure></li><li><p>OSI参考模型和TCP/IP参考模型有什么区别</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">TCP/IP参考模型简化了OSI参考模型，它只定义了四层。</span><br><span class="line">将物理层和数据链路层统一为网络访问层。</span><br><span class="line">将应用层，表示层以及会话层统一为应用层。</span><br><span class="line">Internet层和传输层对应OSI参考模型的网络层和传输层。</span><br><span class="line">相对于OSI参考模型，TCP/IP生产模型更适合于工业生产，所以现在基本都是使用此模型。</span><br></pre></td></tr></table></figure><ul><li>简述OSI参考每一层作用</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">应用层：为应用程序提供接口。</span><br><span class="line">表示层：数据的压缩解压缩，编码与解码，加密解密。</span><br><span class="line">会话层：建立，管理和终止应用程序之间的会话。</span><br><span class="line">传输层：提供端到端之间的连接。</span><br><span class="line">网络层：提供逻辑寻址，将数据包送达目的地。</span><br><span class="line">数据链路层：错误检测，提供物理寻址。</span><br><span class="line">物理层：定义传输介质、规则。</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;Q-amp-A&quot;&gt;&lt;a href=&quot;#Q-amp-A&quot; class=&quot;headerlink&quot; title=&quot;Q&amp;amp;A&quot;&gt;&lt;/a&gt;Q&amp;amp;A&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;网络通信为何要设计分层模型&lt;/p&gt;
+&lt;figure class=&quot;highligh
+      
     
     </summary>
     
