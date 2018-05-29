@@ -68,9 +68,9 @@
     
       <category term="huawei" scheme="http://534160110.gitee.io/blog/tags/huawei/"/>
     
-      <category term="IPSec" scheme="http://534160110.gitee.io/blog/tags/IPSec/"/>
-    
       <category term="ospf" scheme="http://534160110.gitee.io/blog/tags/ospf/"/>
+    
+      <category term="IPSec" scheme="http://534160110.gitee.io/blog/tags/IPSec/"/>
     
   </entry>
   
@@ -101,9 +101,9 @@
     
       <category term="huawei" scheme="http://534160110.gitee.io/blog/tags/huawei/"/>
     
-      <category term="ospf" scheme="http://534160110.gitee.io/blog/tags/ospf/"/>
-    
       <category term="dhcp" scheme="http://534160110.gitee.io/blog/tags/dhcp/"/>
+    
+      <category term="ospf" scheme="http://534160110.gitee.io/blog/tags/ospf/"/>
     
   </entry>
   
