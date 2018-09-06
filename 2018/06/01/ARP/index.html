@@ -3,19 +3,36 @@
 <head>
     <meta charset="utf-8">
     
-    <title>标签: ospf | oneWay</title>
+    <title>ARP | oneWay</title>
     
     
-        <meta name="keywords" content="oneWay" />
+        <meta name="keywords" content="ARP" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="oneWay">
-<meta property="og:url" content="http://yoursite.com/tags/ospf/index.html">
+    <meta name="description" content="1.作用 为什么主机需要有各自的ipv4地址和mac地址才能通信呢？ip属于网络层，mac地址属于数据链路层。通过沿ip传输的路径是逻辑路径，由路由设备根据路由表进行转发，而一条逻辑路径包括多个数据链路。沿独立的数据链路传播的时候，就需要用到一种数据链路标识，以太网中的mac地址就起到这样的作用。  通常，主机刚开始发送数据的时候知道对方的ip地址，而不知道对方的mac地址。这时候就需要用到arp">
+<meta name="keywords" content="ARP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ARP">
+<meta property="og:url" content="http://yoursite.com/2018/06/01/ARP/index.html">
 <meta property="og:site_name" content="oneWay">
+<meta property="og:description" content="1.作用 为什么主机需要有各自的ipv4地址和mac地址才能通信呢？ip属于网络层，mac地址属于数据链路层。通过沿ip传输的路径是逻辑路径，由路由设备根据路由表进行转发，而一条逻辑路径包括多个数据链路。沿独立的数据链路传播的时候，就需要用到一种数据链路标识，以太网中的mac地址就起到这样的作用。  通常，主机刚开始发送数据的时候知道对方的ip地址，而不知道对方的mac地址。这时候就需要用到arp">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-407deff2aa2a3930.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-f9d57fe0efef8b2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-a25c541bf21063df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-58451b73113baf84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-bb252b20c084fa00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-f3d6dbbb9bf6761e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-e56cf9147db12636.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-a778ae1a08412f9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-c9c0e8483de022c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-f6fc40fc53ab72f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-29befa12657b7743.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-09-06T07:18:28.283Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="oneWay">
+<meta name="twitter:title" content="ARP">
+<meta name="twitter:description" content="1.作用 为什么主机需要有各自的ipv4地址和mac地址才能通信呢？ip属于网络层，mac地址属于数据链路层。通过沿ip传输的路径是逻辑路径，由路由设备根据路由表进行转发，而一条逻辑路径包括多个数据链路。沿独立的数据链路传播的时候，就需要用到一种数据链路标识，以太网中的mac地址就起到这样的作用。  通常，主机刚开始发送数据的时候知道对方的ip地址，而不知道对方的mac地址。这时候就需要用到arp">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/12329802-407deff2aa2a3930.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
     
 
     
@@ -240,9 +257,9 @@
                      </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             数据通信
                         </a>
@@ -265,13 +282,13 @@
                      </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             协议分析
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/01/ARP/">ARP</a></li>  <li class="file"><a href="/2018/06/02/IP/">IP</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2018/06/01/ARP/">ARP</a></li>  <li class="file"><a href="/2018/06/02/IP/">IP</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -373,86 +390,143 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#ospf</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-ARP" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/05/25/Ipsec/">Ipsec</a>
-        </h1>
-    
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/数据通信/">数据通信</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据通信/协议分析/">协议分析</a>
+    </div>
 
-                <div class="article-meta">
-                    
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/ARP/">ARP</a>
+    </div>
+
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/05/25/Ipsec/">
-            <time datetime="2018-05-25T14:25:18.000Z" itemprop="datePublished">2018-05-25</time>
+        <a href="/2018/06/01/ARP/">
+            <time datetime="2018-06-01T12:42:46.000Z" itemprop="datePublished">2018-06-01</time>
         </a>
     </div>
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/数据通信/">数据通信</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据通信/R-S配置/">R&S配置</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据通信/R-S配置/华为/">华为</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/IPSec/">IPSec</a>, <a class="tag-link" href="/tags/huawei/">huawei</a>, <a class="tag-link" href="/tags/ospf/">ospf</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/05/24/dhcp+ospf/">dhcp+ospf</a>
+        <h1 class="article-title" itemprop="name">
+            ARP
         </h1>
     
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/05/24/dhcp+ospf/">
-            <time datetime="2018-05-24T13:31:59.000Z" itemprop="datePublished">2018-05-24</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/数据通信/">数据通信</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据通信/R-S配置/">R&S配置</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据通信/R-S配置/华为/">华为</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/dhcp/">dhcp</a>, <a class="tag-link" href="/tags/huawei/">huawei</a>, <a class="tag-link" href="/tags/ospf/">ospf</a>
-    </div>
-
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-作用"><span class="toc-number">1.</span> <span class="toc-text">1.作用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-报文结构"><span class="toc-number">2.</span> <span class="toc-text">2.报文结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-代理ARP"><span class="toc-number">3.</span> <span class="toc-text">3.代理ARP</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#3-1静态路由与代理arp"><span class="toc-number">3.1.</span> <span class="toc-text">3.1静态路由与代理arp</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-无故（Gratuitous）-ARP"><span class="toc-number">4.</span> <span class="toc-text">4.无故（Gratuitous） ARP</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-反向ARP（RARP）"><span class="toc-number">5.</span> <span class="toc-text">5.反向ARP（RARP）</span></a></li></ol>
                 </div>
+            
+        
+        
+            <h5 id="1-作用"><a href="#1-作用" class="headerlink" title="1.作用"></a>1.作用</h5><ul>
+<li><p>为什么主机需要有各自的ipv4地址和mac地址才能通信呢？<br>ip属于网络层，mac地址属于数据链路层。通过沿ip传输的路径是逻辑路径，由路由设备根据路由表进行转发，而一条逻辑路径包括多个数据链路。沿独立的数据链路传播的时候，就需要用到一种数据链路标识，以太网中的mac地址就起到这样的作用。</p>
+</li>
+<li><p>通常，主机刚开始发送数据的时候知道对方的ip地址，而不知道对方的mac地址。这时候就需要用到arp协议获悉到目的主机的mac地址，成功获悉到后便能正常封装数据包，并发送出去。  </p>
+<h5 id="2-报文结构"><a href="#2-报文结构" class="headerlink" title="2.报文结构"></a>2.报文结构</h5><p><img src="https://upload-images.jianshu.io/upload_images/12329802-407deff2aa2a3930.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+</ul>
+<h5 id="3-代理ARP"><a href="#3-代理ARP" class="headerlink" title="3.代理ARP"></a>3.代理ARP</h5><ul>
+<li>代理arp被路由器作为向主机表明自身可用的一种手段：<br>当开启代理ARP的路由器接口收到一个arp请求后，会查看目的ip，是否能根据本地的路由表到达，若可到达，则将自身收到arp请求的接口的mac地址回复给请求节点，告诉其去往目的网络可往这里发送。若不可达，则无视。</li>
+</ul>
+<h6 id="3-1静态路由与代理arp"><a href="#3-1静态路由与代理arp" class="headerlink" title="3.1静态路由与代理arp"></a>3.1静态路由与代理arp</h6><p><img src="https://upload-images.jianshu.io/upload_images/12329802-f9d57fe0efef8b2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>R2的g0/2接口开启代理arp功能并有返回192.168.1.0/24的静态路由</p>
+<p>当R1使用静态路由<br>    ip route 10.1.1.0 255.255.255.0 g0/0<br>pc0分别ping其他两台主机：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12329802-a25c541bf21063df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>R1的arp表：<br><img src="https://upload-images.jianshu.io/upload_images/12329802-58451b73113baf84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="">  </p>
+<p>R2的g0/2口接口信息：<br><img src="https://upload-images.jianshu.io/upload_images/12329802-bb252b20c084fa00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><p>分析：<br>PC0 ping PC1，R1转发数据包的时候，自身arp表中没有10.1.1.1地址对应的mac地址，于是发送一条arp广播请求，R2的g0/2接口收到arp请求，由于开启了代理arp，并且拥有到达目的网络的ip，所以将自己g0/2的mac地址回复给R1（请求者）。当PC0 ping PC2的时候，依然重复此步骤。<br>故R1的arp表中，10.1.1.1与10.1.1.2所对应的mac地址都是R2的g0/2口的mac地址。（如果arp表中多个ip地址映射到单一的mac地址往往是开启了代理arp）<br>使用跟出接口的静态路由，转发每一个报文都要发送arp查询，在MA网络中，如果ARP报文大量发送，易造成广播风暴。  </p>
+</li>
+<li><p>若将R1的路由改为<br>  ip route 10.1.1.0 255.255.255.0 12.1.1.2  </p>
+</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/12329802-f3d6dbbb9bf6761e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12329802-e56cf9147db12636.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>R1转发数据包之前，会先发送arp请求查询下一跳（12.1.1.2）的mac地址，之后这条路径就无需每次都发送arp查询。  </p>
+<h5 id="4-无故（Gratuitous）-ARP"><a href="#4-无故（Gratuitous）-ARP" class="headerlink" title="4.无故（Gratuitous） ARP"></a>4.无故（Gratuitous） ARP</h5><p>主机偶尔会以自己的IPv4地址作为目标地址发送ARP请求，此为无故ARP，或称为免费ARP。其主要有两种作用：</p>
+<ul>
+<li>用来检测网络中是否有ipv4地址冲突</li>
+<li>用于通告一个新的数据链路标识符  </li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/12329802-a778ae1a08412f9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>将R1的ip地址先配置为192.168.1.1/24，再配置成192.168.1.3/24。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12329802-c9c0e8483de022c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>通过抓包分析可知：gratuitous arp是一个replay arp，操作码值为2，其发送者和接受者皆为自身。  路由器每次更改接口ip地址的时候，都会发送一个gratuitous arp来避免ip冲突。另外，windows和linux启动后都会发送无故arp。 </p>
+<p>若将R2的f0/0的ip地址也改为192.168.1.3,则会出现地址冲突错误。<br><img src="https://upload-images.jianshu.io/upload_images/12329802-f6fc40fc53ab72f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12329802-29befa12657b7743.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""> </p>
+<p>如果不解决这个问题，路由器会继续一直发送gratuitous arp……</p>
+<h5 id="5-反向ARP（RARP）"><a href="#5-反向ARP（RARP）" class="headerlink" title="5.反向ARP（RARP）"></a>5.反向ARP（RARP）</h5><p>RARP作用是将数据链路标识符映射为ipv4地址，早期的无盘工作站中会使用到。不过RARP在很大程度上被DHCP和BOOTP的扩展协议所替代，他们能提供更多的信息。 </p>
+
             </div>
-        </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
     
-</div>
+<nav id="article-nav">
+    
+        <a href="/2018/06/02/IP/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    IP
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/05/29/LAN/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">LAN</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
 </section>
         </div>
         <footer id="footer">
