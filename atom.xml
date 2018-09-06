@@ -128,60 +128,6 @@
   </entry>
   
   <entry>
-    <title>分层模型</title>
-    <link href="http://yoursite.com/2018/05/29/Q-A%E5%88%86%E5%B1%82%E6%A8%A1%E5%9E%8B/"/>
-    <id>http://yoursite.com/2018/05/29/Q-A分层模型/</id>
-    <published>2018-05-29T14:54:30.000Z</published>
-    <updated>2018-05-29T15:03:05.422Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h5><ul><li><p>网络通信为何要设计分层模型</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">计算机之间的通信需要规定协议。20世纪80年代之前，不同品牌的计算机一般都会运行厂商自己定义的一套协议，这就导致了不同品牌的计算机之间通信出现了问题。</span><br><span class="line">所以在1985年ISO定义了OSI参考模型，大家都遵守这些统一规定的协议就解决了不同计算机之间互联的问题。</span><br><span class="line">整个网络体系结构是十分复杂的，通过分层的方法，降低了其复杂度。</span><br><span class="line">层与层之间提供标准化的接口，降低耦合性，能够专注模块化地设计。</span><br></pre></td></tr></table></figure></li><li><p>OSI参考模型和TCP/IP参考模型有什么区别</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">TCP/IP参考模型简化了OSI参考模型，它只定义了四层。</span><br><span class="line">将物理层和数据链路层统一为网络访问层。</span><br><span class="line">将应用层，表示层以及会话层统一为应用层。</span><br><span class="line">Internet层和传输层对应OSI参考模型的网络层和传输层。</span><br><span class="line">相对于OSI参考模型，TCP/IP生产模型更适合于工业生产，所以现在基本都是使用此模型。</span><br></pre></td></tr></table></figure><ul><li>简述OSI参考每一层作用</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">应用层：为应用程序提供接口。</span><br><span class="line">表示层：数据的压缩解压缩，编码与解码，加密解密。</span><br><span class="line">会话层：建立，管理和终止应用程序之间的会话。</span><br><span class="line">传输层：提供端到端之间的连接。</span><br><span class="line">网络层：提供逻辑寻址，将数据包送达目的地。</span><br><span class="line">数据链路层：错误检测，提供物理寻址。</span><br><span class="line">物理层：定义传输介质、规则。</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h5 id=&quot;Q-amp-A&quot;&gt;&lt;a href=&quot;#Q-amp-A&quot; class=&quot;headerlink&quot; title=&quot;Q&amp;amp;A&quot;&gt;&lt;/a&gt;Q&amp;amp;A&lt;/h5&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;网络通信为何要设计分层模型&lt;/p&gt;
-&lt;figure class=&quot;highligh
-      
-    
-    </summary>
-    
-      <category term="Q&amp;A" scheme="http://yoursite.com/categories/Q-A/"/>
-    
-      <category term="数通基础" scheme="http://yoursite.com/categories/Q-A/%E6%95%B0%E9%80%9A%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="reviewDay1" scheme="http://yoursite.com/tags/reviewDay1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Review</title>
-    <link href="http://yoursite.com/2018/05/29/4C/"/>
-    <id>http://yoursite.com/2018/05/29/4C/</id>
-    <published>2018-05-29T07:06:11.000Z</published>
-    <updated>2018-09-06T07:24:28.724Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="一、数据通信基础（2天）"><a href="#一、数据通信基础（2天）" class="headerlink" title="一、数据通信基础（2天）"></a>一、数据通信基础（2天）</h5><ul><li><p>1、OSI、TCP/IP参考模型</p><ul><li>为何设计分层结构<ul><li>简要说明OSI参考模型每一层的作用</li><li>二者区别以及各自优缺点</li></ul></li></ul></li><li><p>2、以太网帧头格式</p></li><li><p>3、ARP</p><ul><li>帧格式</li><li>免费ARP</li><li>代理ARP</li><li>ARP相关攻击与防护</li></ul></li><li><p>4、IP（v4）    </p><ul><li>帧格式（帧头每个字段含义）</li><li>回答分片具体流程</li><li>重传超时</li><li>IP相关攻击与防护</li></ul></li><li><p>5、ICMP</p><ul><li>常见的代码含义</li><li>路径MTU发现</li></ul></li><li><p>6、TCP</p><ul><li>帧格式</li><li>拥塞检测、避免</li><li>慢启动</li><li>超时与重传</li><li>基于TCP常见应用端口号</li></ul></li><li>7、UDP<ul><li>帧格式</li><li>基于UDP常见应用端口号</li></ul></li><li>8、DHCP<ul><li>分析整个工作流程的每个数据包</li><li>DHCP攻击与防护</li><li>为特定主机分配IP地址</li></ul></li></ul><h5 id="二、交换基础（2天）"><a href="#二、交换基础（2天）" class="headerlink" title="二、交换基础（2天）"></a>二、交换基础（2天）</h5><ul><li>1、简述交换机工作原理</li><li><p>2、MAC层相关攻击</p><ul><li>泛洪攻击</li><li>中间人攻击</li></ul></li><li><p>3、STP</p><ul><li>BPDU格式，含义</li><li>初始化过程几种状态相关信息</li><li>MSTP概念，配置</li></ul></li><li><p>4、虚拟局域网</p><ul><li>简述VLAN作用</li><li>dot1q协议头</li><li>叙述trunking打标记过程</li><li>VTP<ul><li>三种模式功能</li><li>如何同步</li></ul></li><li>VLAN跳跃攻击原理</li><li>PVLAN相关知识点</li><li>protect-port作用</li></ul></li><li><p>5、EtherChannel</p><ul><li>优点</li><li>协商成功所需条件</li></ul></li><li><p>6、VRRP</p><ul><li>原理</li><li>报文格式</li><li>配置<ul><li>基本配置</li><li>追踪（对象）</li></ul></li></ul></li><li>7、 端口安全</li></ul><h5 id="三、路由基础（3天）"><a href="#三、路由基础（3天）" class="headerlink" title="三、路由基础（3天）"></a>三、路由基础（3天）</h5><ul><li>简述路由器的功能</li><li>RIP相关知识</li><li>OSPF相关知识</li><li>BGP相关知识</li><li>重发布<br>…<h5 id="gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt"><a href="#gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt" class="headerlink" title="&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</h5><h5 id="四、无线、接入网、通信原理（2天）"><a href="#四、无线、接入网、通信原理（2天）" class="headerlink" title="四、无线、接入网、通信原理（2天）"></a>四、无线、接入网、通信原理（2天）</h5></li><li>常见无线协议标准<ul><li>a、b、g、n、ac、i</li></ul></li><li>无线路由器安全<br>待补充…</li></ul><h5 id="五、安全、VPN技术、IPv6（3天）"><a href="#五、安全、VPN技术、IPv6（3天）" class="headerlink" title="五、安全、VPN技术、IPv6（3天）"></a>五、安全、VPN技术、IPv6（3天）</h5><ul><li>参考网络安全课本</li><li>简述IPSec、MPLS VPN等基本概念<br>待补充…</li></ul><h5 id="六、云计算、虚拟化、大数据（2天）"><a href="#六、云计算、虚拟化、大数据（2天）" class="headerlink" title="六、云计算、虚拟化、大数据（2天）"></a>六、云计算、虚拟化、大数据（2天）</h5><p>待补充…</p><h5 id="gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-1"><a href="#gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-1" class="headerlink" title="&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</h5>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h5 id=&quot;一、数据通信基础（2天）&quot;&gt;&lt;a href=&quot;#一、数据通信基础（2天）&quot; class=&quot;headerlink&quot; title=&quot;一、数据通信基础（2天）&quot;&gt;&lt;/a&gt;一、数据通信基础（2天）&lt;/h5&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;1、OSI、TCP/IP参考模型&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="Others" scheme="http://yoursite.com/categories/Others/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Ipsec</title>
     <link href="http://yoursite.com/2018/05/25/Ipsec/"/>
     <id>http://yoursite.com/2018/05/25/Ipsec/</id>
