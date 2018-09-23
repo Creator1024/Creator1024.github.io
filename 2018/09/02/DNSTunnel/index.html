@@ -3,19 +3,40 @@
 <head>
     <meta charset="utf-8">
     
-    <title>oneWay</title>
+    <title>DNS Tunnel | oneWay</title>
     
     
-        <meta name="keywords" content="oneWay" />
+        <meta name="keywords" content="DNS" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="oneWay">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="一.原理1.1.dns概述dns协议最基本的作用是将域名映射为ip地址，让我们在访问网页的时候无需记住复杂的ip地址。在一些地方，需要我们认证才能上网。假如我们没有认证，大部分的流量都会被过滤，但是往往都会放行dns流量，windows下可通过nslookup或者ping命令查看dns流量是否被过滤：1234567891011121314C:\&amp;gt;nslookup默认服务器:  UnKnown">
+<meta name="keywords" content="DNS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DNS Tunnel">
+<meta property="og:url" content="http://yoursite.com/2018/09/02/DNSTunnel/index.html">
 <meta property="og:site_name" content="oneWay">
+<meta property="og:description" content="一.原理1.1.dns概述dns协议最基本的作用是将域名映射为ip地址，让我们在访问网页的时候无需记住复杂的ip地址。在一些地方，需要我们认证才能上网。假如我们没有认证，大部分的流量都会被过滤，但是往往都会放行dns流量，windows下可通过nslookup或者ping命令查看dns流量是否被过滤：1234567891011121314C:\&amp;gt;nslookup默认服务器:  UnKnown">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-5fb1a0665b5fce61.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-01d0d4f7107dbd81.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-3abaa80a62bcaf78.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-b1776839c4125623.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-a4aa6f0903ab090d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-a3b52ae0dcb7db00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-73f21c944e5712df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-eecc0a65eb016984.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-ac71cf78e3cf31e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-4764c0b3fa57e954.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-155bc2c4324247f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-280fcd875afec07a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-c8d97f0040f42059.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-ed13d683f33e6b65.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-ffb942d75fedbb3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-09-23T02:13:12.586Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="oneWay">
+<meta name="twitter:title" content="DNS Tunnel">
+<meta name="twitter:description" content="一.原理1.1.dns概述dns协议最基本的作用是将域名映射为ip地址，让我们在访问网页的时候无需记住复杂的ip地址。在一些地方，需要我们认证才能上网。假如我们没有认证，大部分的流量都会被过滤，但是往往都会放行dns流量，windows下可通过nslookup或者ping命令查看dns流量是否被过滤：1234567891011121314C:\&amp;gt;nslookup默认服务器:  UnKnown">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/12329802-5fb1a0665b5fce61.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
     
 
     
@@ -231,13 +252,13 @@
                      </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             其他
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/09/02/DNSTunnel/">DNS Tunnel</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2018/09/02/DNSTunnel/">DNS Tunnel</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -373,8 +394,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main">
-    <article id="post-DNSTunnel" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-DNSTunnel" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -493,8 +513,6 @@
 <script type="text/javascript">
     !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
 </script>     
-
-
 </section>
         </div>
         <footer id="footer">

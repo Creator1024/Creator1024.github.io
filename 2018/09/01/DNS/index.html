@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>DNS | oneWay</title>
+    
+    
+        <meta name="keywords" content="DNS" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="一、作用现在互联网上绝大多数设备是基于TCP/IP协议，使用IP地址进行通信的。设备之间通信时必须要有一个IP地址。当我们需要访问一个网站时，相对于一个32bit的ip地址，我们更愿意记住一串更具标识性字符。而DNS协议最基本的作用便是把这串字符解析为相应的ip地址。 二、域名系统2.1.名称空间DNS中使用的所有的名称集合构成了DNS名称空间。与linux文件系统类似，这个名称空间是一个树形结构">
+<meta name="keywords" content="DNS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DNS">
+<meta property="og:url" content="http://yoursite.com/2018/09/01/DNS/index.html">
+<meta property="og:site_name" content="oneWay">
+<meta property="og:description" content="一、作用现在互联网上绝大多数设备是基于TCP/IP协议，使用IP地址进行通信的。设备之间通信时必须要有一个IP地址。当我们需要访问一个网站时，相对于一个32bit的ip地址，我们更愿意记住一串更具标识性字符。而DNS协议最基本的作用便是把这串字符解析为相应的ip地址。 二、域名系统2.1.名称空间DNS中使用的所有的名称集合构成了DNS名称空间。与linux文件系统类似，这个名称空间是一个树形结构">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-76d09433fc574b55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-ef83e17b0f52d2f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-53bd0feb007d0e70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-084c44572c871117.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-5a5d49734b98dba5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-09-23T02:03:13.076Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DNS">
+<meta name="twitter:description" content="一、作用现在互联网上绝大多数设备是基于TCP/IP协议，使用IP地址进行通信的。设备之间通信时必须要有一个IP地址。当我们需要访问一个网站时，相对于一个32bit的ip地址，我们更愿意记住一串更具标识性字符。而DNS协议最基本的作用便是把这串字符解析为相应的ip地址。 二、域名系统2.1.名称空间DNS中使用的所有的名称集合构成了DNS名称空间。与linux文件系统类似，这个名称空间是一个树形结构">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/12329802-76d09433fc574b55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="oneWay" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">oneWay</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="https://www.gravatar.com/avatar/7e4f21ca09ee4e1fbddee4fd4ec87851" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">oneWay</h2>
+            <h3 id="title">none</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Xiamen, China</span>
+            <a id="follow" target="_blank" href="https://github.com/Creator1024">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                8
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                7
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/Creator1024" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Q&A
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数通基础
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/05/29/Q-A/">Q&A</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            其他
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/09/02/DNSTunnel/">DNS Tunnel</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            数据通信
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            R&S配置
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            华为
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/05/25/Ipsec/">Ipsec</a></li>  <li class="file"><a href="/2018/05/24/dhcp+ospf/">dhcp+ospf</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            协议分析
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/02/IP/">IP</a></li>  <li class="file"><a href="/2018/06/01/ARP/">ARP</a></li>  <li class="file active"><a href="/2018/09/01/DNS/">DNS</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            基本概念
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/05/29/LAN/">LAN</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>归档</span></h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>标签</span></h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARP/">ARP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS/">DNS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IPSec/">IPSec</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dhcp/">dhcp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/huawei/">huawei</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ospf/">ospf</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reviewDay1/">reviewDay1</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-DNS" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/数据通信/">数据通信</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据通信/协议分析/">协议分析</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/DNS/">DNS</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/09/01/DNS/">
+            <time datetime="2018-09-01T02:01:51.000Z" itemprop="datePublished">2018-09-01</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            DNS
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、作用"><span class="toc-number">1.</span> <span class="toc-text">一、作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、域名系统"><span class="toc-number">2.</span> <span class="toc-text">二、域名系统</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-名称空间"><span class="toc-number">2.0.1.</span> <span class="toc-text">2.1.名称空间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-缓存"><span class="toc-number">2.0.2.</span> <span class="toc-text">2.2.缓存</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、DNS协议"><span class="toc-number">3.</span> <span class="toc-text">三、DNS协议</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-解析过程"><span class="toc-number">3.0.1.</span> <span class="toc-text">3.1.解析过程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-消息格式"><span class="toc-number">3.0.2.</span> <span class="toc-text">3.2.消息格式</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#3-2-1-消息段组成"><span class="toc-number">3.0.2.1.</span> <span class="toc-text">3.2.1.消息段组成</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-2-2-头部字段组成"><span class="toc-number">3.0.2.2.</span> <span class="toc-text">3.2.2.头部字段组成</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-2-3-报文分析"><span class="toc-number">3.0.2.3.</span> <span class="toc-text">3.2.3.报文分析</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、常见DNS相关问题"><span class="toc-number">4.</span> <span class="toc-text">四、常见DNS相关问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-1-Anti-Spam-by-SPF"><span class="toc-number">4.0.1.</span> <span class="toc-text">4.1.Anti-Spam by SPF</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#4-1-1-SPF原理"><span class="toc-number">4.0.1.1.</span> <span class="toc-text">4.1.1.SPF原理</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-1-2-SPF语法"><span class="toc-number">4.0.1.2.</span> <span class="toc-text">4.1.2.SPF语法</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-区域传输和DNS通知的用途"><span class="toc-number">4.0.2.</span> <span class="toc-text">4.2.区域传输和DNS通知的用途</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-3-DNS劫持、污染"><span class="toc-number">4.0.3.</span> <span class="toc-text">4.3.DNS劫持、污染</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-4-SOA和NS记录"><span class="toc-number">4.0.4.</span> <span class="toc-text">4.4.SOA和NS记录</span></a></li></ol></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <h3 id="一、作用"><a href="#一、作用" class="headerlink" title="一、作用"></a>一、作用</h3><p>现在互联网上绝大多数设备是基于TCP/IP协议，使用IP地址进行通信的。设备之间通信时必须要有一个IP地址。当我们需要访问一个网站时，相对于一个32bit的ip地址，我们更愿意记住一串更具标识性字符。而DNS协议最基本的作用便是把这串字符解析为相应的ip地址。</p>
+<h3 id="二、域名系统"><a href="#二、域名系统" class="headerlink" title="二、域名系统"></a>二、域名系统</h3><h5 id="2-1-名称空间"><a href="#2-1-名称空间" class="headerlink" title="2.1.名称空间"></a>2.1.名称空间</h5><p>DNS中使用的所有的名称集合构成了DNS名称空间。与linux文件系统类似，这个名称空间是一个树形结构。<br>树根的顶部未命名，最高层（一级域）是顶级域名.（TLD），如我们常见的.com，.net（gTLD）就是属于顶级域名。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12329802-76d09433fc574b55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>一个域名包含一系列的由点隔开的<strong>标签</strong>，每个标签最多可到63个字符，标签使用<strong>“Punycode码”</strong>编码。2017年的时候国内的安全专家发现部分浏览器会受到<a href="https://blog.csdn.net/qq_27446553/article/details/70255763" target="_blank" rel="noopener">Punycode钓鱼攻击</a>的影响。</li>
+<li><p>标签类型有两种：数据标签和压缩标签。</p>
+<ul>
+<li>数据标签写法：<strong>[3]www[7]jianshu[3]com[0]</strong>——标签长度+字符，根标签长度为0。</li>
+<li>压缩标签：当有多条其中一部分内容一样的记录时，压缩标签可以通过指向其他标签的指针以节省dns信息空间。比如说<strong>[3]usc[3]edu[0][4]ucla[192][4][0]</strong> ——设置标签内容之前的一个字节的2个高位为1（也就是192）来标识这是一个压缩标签，之后的14位（6+8）用来标识偏移量（本例中偏移量位4），则[192][4]就相当于edu。usc.edu和ucla.edu就共享了edu标签。</li>
+</ul>
+</li>
+<li><p>我们通常看到的域名都是<strong>完全限定域名</strong>（fully qualified domain name，FQDN）——主机名+全路径。</p>
+</li>
+<li>区域——一个区域是DNS名称空间的一棵子树，每一个域名都存在于某个区域中，TLD存在于根区域。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">www.slickghost.com 或者www.slickghost.com. 都是完全限定域名。</span><br><span class="line"></span><br><span class="line">www，slickghost，com这三个都称为标签，每个标签最多可以达到<span class="number">63</span>个字符，比如说：</span><br><span class="line">thelongestdomainnameintheworldandthensomeandthensomemoreandmore.com</span><br><span class="line"></span><br><span class="line">www是主机名，slickghost.com则是这台主机所存在的域。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="2-2-缓存"><a href="#2-2-缓存" class="headerlink" title="2.2.缓存"></a>2.2.缓存</h5><ul>
+<li>域名服务器在学习域名的时候，也会缓存区域信息。使用缓存可以有效地减小网上的dns流量，也提高服务器的效率。</li>
+<li>成功和不成功的解析（称为否定缓存，即该域名找不到对应的主机）都会被缓存。否定缓存在[RFC2308]中由可选变为强制。</li>
+</ul>
+<p>Windows注册表<strong>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters</strong>控制缓存相关参数，maxcachettl为dns缓存最大TTL，dns回复中，每条记录也会有个TTL，二者取较小的值，一般都是用回复的TTL。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ipconfig /displaydns &gt; d:/dns.txt   <span class="comment">//查看本机dns缓存记录（因记录可能比较多，放在文件中查看比较合适 ）</span></span><br><span class="line">ipconfig /flushdns   <span class="comment">//清除dns缓存</span></span><br></pre></td></tr></table></figure></p>
+<p>Linux下<strong>/etc/nscd.conf</strong>控制是否使用本地文件、DNS协议，是否要缓存，缓存TTL等</p>
+<h3 id="三、DNS协议"><a href="#三、DNS协议" class="headerlink" title="三、DNS协议"></a>三、DNS协议</h3><p>DNS协议由两个主要部分组成</p>
+<ul>
+<li>对dns特定名称查询的<strong>查询/响应协议</strong></li>
+<li>dns服务器用于<strong>交换数据库记录的协议</strong>（区域传输）<h5 id="3-1-解析过程"><a href="#3-1-解析过程" class="headerlink" title="3.1.解析过程"></a>3.1.解析过程</h5><img src="https://upload-images.jianshu.io/upload_images/12329802-ef83e17b0f52d2f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>GW.HOME是本地DNS服务器，其使用ISP提供的DNS服务器做递归。现A.HOME查询EXAMPLE.COM最复杂的情况将经历以下11个步骤：</li>
+</ul>
+<p>A.HOME先查询本地hosts文件有没有EXAMPLE.COM的记录<strong>（0）</strong>，若没有，则向GW.HOME发起dns查询请求<strong>（1）</strong>，若GW.HOME不知道EXAMPLE.COM域或者COM TLD的名称服务器，他会转发查询到ISP提供的dns服务器<strong>（2）【称为递归】</strong>，假设该服务器也不知道请求的域和其他信息，则他就会联系根服务中的其中一台<strong>（3）</strong>，因为根服务器不支持递归，他看到这是一个.COM域的请求，故返回需要联系的COM TLD的名称服务器信息<strong>（4）</strong>。ISP的dns服务器联系COM TLD服务器<strong>（5）</strong>，其返回EXAMPLE.COM的名称服务器的域名和IP<strong>（6）</strong>，这里是返回了A.IANA-SERVERS.NET，接着ISP的dns服务器联系他<strong>（7）</strong>，其回复EXAMPLE.COM的相关信息<strong>（8）</strong>，ISP的dns服务器将结果发送给GW.HOME<strong>（9）</strong>，到这里，GW.HOME算完成了此次查询，可以将结果回送给A.HOME<strong>（10）</strong>。</p>
+<h5 id="3-2-消息格式"><a href="#3-2-消息格式" class="headerlink" title="3.2.消息格式"></a>3.2.消息格式</h5><h6 id="3-2-1-消息段组成"><a href="#3-2-1-消息段组成" class="headerlink" title="3.2.1.消息段组成"></a>3.2.1.消息段组成</h6><table>
+<thead>
+<tr>
+<th style="text-align:left">消息段</th>
+<th style="text-align:left">含义 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Header</td>
+<td style="text-align:left">头部（固定12Byte）</td>
+</tr>
+<tr>
+<td style="text-align:left">Question</td>
+<td style="text-align:left">请求（一般为1）</td>
+</tr>
+<tr>
+<td style="text-align:left">Answer</td>
+<td style="text-align:left">应答（一般至少为1）</td>
+</tr>
+<tr>
+<td style="text-align:left">Authority</td>
+<td style="text-align:left">指向域的（授权）资源记录</td>
+</tr>
+<tr>
+<td style="text-align:left">Addiction</td>
+<td style="text-align:left">其他资源记录</td>
+</tr>
+<tr>
+<td style="text-align:left">Others</td>
+<td style="text-align:left">不同类型报文有不同的信息</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://upload-images.jianshu.io/upload_images/12329802-53bd0feb007d0e70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h6 id="3-2-2-头部字段组成"><a href="#3-2-2-头部字段组成" class="headerlink" title="3.2.2.头部字段组成"></a>3.2.2.头部字段组成</h6><table>
+<thead>
+<tr>
+<th style="text-align:left">字段名</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Transation ID（事务ID）</td>
+<td style="text-align:left">客户端发出查询的时候随机生成，用来匹配响应和查询。</td>
+</tr>
+<tr>
+<td style="text-align:left">QR</td>
+<td style="text-align:left">0表示查询，1表示响应。</td>
+</tr>
+<tr>
+<td style="text-align:left">OpCode（操作码）</td>
+<td style="text-align:left">标准查询（0），通知（4），更新（5），1~3被弃用。</td>
+</tr>
+<tr>
+<td style="text-align:left">AA（authoritative answer，授权回答）</td>
+<td style="text-align:left">与缓存回答相对。</td>
+</tr>
+<tr>
+<td style="text-align:left">TC（truncated，可截断的）</td>
+<td style="text-align:left">表示当前应答总长度超过512个字节，只返回前512个字节。客户端收到TC位置1的回复，可能会发送基于TCP53端口的dns请求报文，以接受能够承载多于512字节的TCP数据，因为TCP能将消息分为多个报文段。</td>
+</tr>
+<tr>
+<td style="text-align:left">RD（recursion desired，期望递归）</td>
+<td style="text-align:left">告诉服务器执行递归查询。如果这个字段为0，而收到请求的服务器没有<strong>授权回答</strong>，则被请求的名称服务器就返回一个可以联系获取回答的其他名称服务器的列表。</td>
+</tr>
+<tr>
+<td style="text-align:left">RA（recursion available，递归可用）</td>
+<td style="text-align:left">如果服务器支持递归查询，则置该字段为1。TDL和gTDL一般不支持递归查询。</td>
+</tr>
+<tr>
+<td style="text-align:left">Z</td>
+<td style="text-align:left">保留，直接置0。</td>
+</tr>
+<tr>
+<td style="text-align:left">AD</td>
+<td style="text-align:left">如果信息已授权，则AD为真。</td>
+</tr>
+<tr>
+<td style="text-align:left">CD</td>
+<td style="text-align:left">如果禁用安全检查，则CD为真。</td>
+</tr>
+<tr>
+<td style="text-align:left">RCode（响应码）</td>
+<td style="text-align:left">通常为——没有差错（0），不存在域名（3），其他错误类型可查表</td>
+</tr>
+</tbody>
+</table>
+<h6 id="3-2-3-报文分析"><a href="#3-2-3-报文分析" class="headerlink" title="3.2.3.报文分析"></a>3.2.3.报文分析</h6><p><img src="https://upload-images.jianshu.io/upload_images/12329802-084c44572c871117.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="请求报文"></p>
+<ul>
+<li>这是一条dns查询请求报文，QR=0（查询），RD=1（期望递归），Questions=1（查询数为1）</li>
+<li>Queries中 ，有一条记录：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">字段名</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Name</td>
+<td style="text-align:left">要查询的域名。 其标签数为3（实际上有4个，根标签的长度为0），域名长度为15（最大长度为255）。</td>
+</tr>
+<tr>
+<td style="text-align:left">Type</td>
+<td style="text-align:left">查询类型，常见的有：<br>IPv4地址记录<strong>（A[RR类型]，1[值]）</strong><br>IPv6地址记录<strong>（AAAA，28）</strong><br> 名称服务器<strong>（NS，2）</strong><br>名称别名<strong>（CNAME，5）</strong><br>指针记录，IP映射为名称<strong>（PTR，12）</strong><br>邮件交换器<strong>（MX，15）</strong><br>文本，提供各种信息<strong>（TXT，16）</strong><br>查询开发特定服务的服务器信息<strong>（SRV，33）</strong><br>请求任意记录<strong>（ANY，255）</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">Class（16bit）</td>
+<td style="text-align:left">查询类：<br>互联网类（1）<br>没有类（254）<br>所有类（255）</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://upload-images.jianshu.io/upload_images/12329802-5a5d49734b98dba5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="响应报文"></p>
+<ul>
+<li>这是一条dns响应报文，QR=1（响应），RD（期望递归）=1，RA（递归可用）=1。应答资源有3条，授权应答资源5条，其他应答资源2条。</li>
+</ul>
+<h3 id="四、常见DNS相关问题"><a href="#四、常见DNS相关问题" class="headerlink" title="四、常见DNS相关问题"></a>四、常见DNS相关问题</h3><h5 id="4-1-Anti-Spam-by-SPF"><a href="#4-1-Anti-Spam-by-SPF" class="headerlink" title="4.1.Anti-Spam by SPF"></a>4.1.Anti-Spam by SPF</h5><p>垃圾邮件伪造发件人的地址，使其看起来像一个合法的地址（如银行、官方网站等），用以欺骗收件人透露账号密码、个人资料等相关信息。而SPF（Sender Policy Framework，发送方策略框架）则是一个解决垃圾邮件和防伪造的一个标准。 许多资料上说到，PTR记录也用作电子邮件的防伪，这确实是一种方法，国外有些邮件服务器有使用到，不过比较正式的还是使用SPF来处理。</p>
+<h6 id="4-1-1-SPF原理"><a href="#4-1-1-SPF原理" class="headerlink" title="4.1.1.SPF原理"></a>4.1.1.SPF原理</h6><ul>
+<li><p>SPF是一种DNS记录类型，它是一种<strong>TXT</strong>记录，其登记了某个域名拥有的用来外发邮件的所有（邮件）服务器。</p>
+</li>
+<li><p>SPF与MX记录相反，MX是用来记录某个域名的邮件服务器有哪些，而SPF则是表面哪些邮件服务器是经过某个域名认同可以发送邮件的。</p>
+</li>
+</ul>
+<p>假设一个MTA（Mail Transfer Agent）收到一条邮件，发送这条邮件的服务器IP是1.1.1.1，并声称发件人是<a href="mailto:xxx@example.com" target="_blank" rel="noopener">xxx@example.com</a>。  MTA会去查询example.com的SPF记录，该域的SPF记录允许1.1.1.1这个IP，则接受该邮件，否则视其为伪造邮件并退回。</p>
+<h6 id="4-1-2-SPF语法"><a href="#4-1-2-SPF语法" class="headerlink" title="4.1.2.SPF语法"></a>4.1.2.SPF语法</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">linux下可以使用“dig -t txt 域名”来查看某个域名的spf记录，如：</span><br><span class="line"></span><br><span class="line">dig -t txt qq.com</span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">qq.com.			1383	IN	TXT	&quot;v=spf1 include:spf.mail.qq.com -all&quot;</span><br></pre></td></tr></table></figure>
+<p>一条SPF记录可定义一个或多个机制（mechanism）。在每一个mechanism前都有一个限定符（qualifier）对其进行评估，这些限定符包括：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">如果没有指定限定符，则默认为&quot;+&quot;</span><br><span class="line">&quot;+&quot;  Pass（通过）：发送方主机允许从该域发送邮件。</span><br><span class="line">&quot;-&quot;  Fail（拒绝）：发送方主机没有授权从该域发送邮件</span><br><span class="line">&quot;~&quot;  Soft Fail（软拒绝）：软拒绝的处理结果取决于接收电子邮件的软件。</span><br><span class="line">&quot;?&quot;  Neutral（中立）:SPF 记录中没有关于发件 IP 是否合法的信息,可接收邮件。</span><br><span class="line"></span><br><span class="line">当接收服务器处理SPF语句（使用check_host()函数）时，</span><br><span class="line">除了以上四种限定符所对应的状态外，还有三种状态，分别是：</span><br><span class="line"></span><br><span class="line">None：服务器没有设定 SPF 记录，可接收邮件。</span><br><span class="line">TempError：发生了临时错误，比如说DNS查询失败。</span><br><span class="line">PermError：SPF配置存在问题，通常是因为TXT记录或者SPF语句存在问题，没规定接收还是拒收邮件。</span><br></pre></td></tr></table></figure></p>
+<p>接下来看看SPF的几种机制并举例：</p>
+<ul>
+<li><p>all ：表示所有 IP。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;v=spf1 -all&quot; 拒绝所有，这样可以表示不会以该域名发送邮件</span><br><span class="line">&quot;v=spf1 +all&quot; 接受所有</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ip4：格式为<strong>ip4:&lt;ip4地址&gt;</strong>或者<strong>ip4:&lt;ip4网络&gt;/&lt;掩码&gt;</strong>，用于指定一个 IPv4 地址或者地址段。如果掩码没有给出，则默认为/32。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;v=spf1 ip4:1.1.1.1 -all&quot;  只允许IP为1.1.1.1的主机</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ip6：类似IPv4。</p>
+</li>
+<li>a：指定一个a记录所对应的IP地址（段），其格式为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a</span><br><span class="line">a/&lt;掩码&gt;</span><br><span class="line">a:&lt;域名&gt;</span><br><span class="line">a:&lt;域名&gt;/&lt;掩码&gt;</span><br><span class="line">如果没有指定域名，则默认为当前域名</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;v=spf1 a -all&quot;</span><br><span class="line">允许当前域名的 a 记录对应的 IP 地址。</span><br><span class="line">&quot;v=spf1 a a:test.example.com -all&quot;</span><br><span class="line">允许当前域名的 a 记录以及test.example.com的a记录对应的 IP 地址。</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>mx：和a的格式及用法一样。</li>
+<li>exists :格式为<strong>exists:<domain></domain></strong>。对<domain>执行一个 A记录查询，只要有返回结果，就看作命中。</domain></li>
+<li><p>include：格式为<strong>include：<domain></domain></strong>，标识引入的SPF记录和域名<domain>的SPF记录一样。</domain></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;v=spf1 include:example.com -all&quot; </span><br><span class="line">采用和 example.com 一样的 SPF 记录</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ptr ：格式为<strong>ptr</strong>或者<strong>ptr:<domain></domain></strong>。使用ptr机制会带来大量很大开销的 DNS 查询，官方不推荐使用。</p>
+</li>
+<li><p>redirect：格式为<strong>redirect=<domain></domain></strong>，表示使用<domain>域名的SPF记录替换该记录。不妨试试<strong>dig -t txt gmail.com</strong></domain></p>
+</li>
+</ul>
+<h5 id="4-2-区域传输和DNS通知的用途"><a href="#4-2-区域传输和DNS通知的用途" class="headerlink" title="4.2.区域传输和DNS通知的用途"></a>4.2.区域传输和DNS通知的用途</h5><p>由于dns查询量较大，一般会使用从dns服务器分段压力。区域传输用于主dns服务器和从dns服务器之间同步RR。<br>刚开始，服务器一般使用完整的区域传输（<strong>AXFR消息</strong>），因为同步RR数据量比较大，所以通常使用TCP，传输前需建立TCP连接。在同步完成后，主服务器和从服务器共同维护一个<strong>序列号</strong>来判断当前数据库是否一致，主服务器更新了数据库之后就会增加序列号的值，从服务器定期发送自身的序列号，主服务器如果收到了较小序列号的查询，可以使用增量的区域传输（<strong>IXFR消息</strong>）让这台从服务器与自己同步。<br>因为从服务器发送查询以确认序列号是否一致是有时间间隔的，所以加入了一种<strong>DNS NOTIFY消息</strong>（基于UDP）进行优化。主服务器数据库发生变化的时候，就会发送该消息，客户端接收到该消息之后进行回复，之后就可以开始同步了。</p>
+<h5 id="4-3-DNS劫持、污染"><a href="#4-3-DNS劫持、污染" class="headerlink" title="4.3.DNS劫持、污染"></a>4.3.DNS劫持、污染</h5><ul>
+<li>dns劫持指的是域名服务器返回错误的ip，让请求者访问域名服务器拥有者希望其访问的页面，比较常见的就是运营商的dns劫持，最典型的就是上网时一大堆的广告。可以通过指定一个固定的dns服务器来解决。</li>
+<li>dns污染，或者称dns缓存投毒。因为dns查询/回复一般是基于<strong>不可靠无连接</strong>的udp协议，而且通常没有什么认证机制，所以很容易被篡改。对于dns污染，我们很难通过设置来解决。不过，修改本地hosts文件是一种办法。</li>
+</ul>
+<h5 id="4-4-SOA和NS记录"><a href="#4-4-SOA和NS记录" class="headerlink" title="4.4.SOA和NS记录"></a>4.4.SOA和NS记录</h5><ul>
+<li><p>SOA记录称为起始授权记录，用来表明哪个服务器是权威服务器，或者说哪个服务器是这个区域的所有者。创建dns服务器只能创建一个标准区域，通常也会使用其他服务器创建辅助区域用于分担负载等作用。创建标准区域的那台服务器就是权威服务器，即SOA记录中的ip地址是这台服务器的地址。也只有标准区域可以对信息进行更改，辅助区域只能复制信息。</p>
+</li>
+<li><p>NS记录是名称服务器记录，或者说是别名记录，他指明了对于某个域名，该由谁来解析。网络上有一些缓存了大量dns记录的服务器，称为<strong>唯缓存dns服务器</strong>，通过别名记录让解析权转到这样的服务器，就能够让dns解析的速度变快。我们在域名提供商申请了一个域名之后，假设是example.com，该域名提供商的域名服务器会提供此域名比如<a href="http://www.example.com的解析。如果我们自己想搭建一台dns服务器用来解析，就可以用NS记录。" target="_blank" rel="noopener">www.example.com的解析。如果我们自己想搭建一台dns服务器用来解析，就可以用NS记录。</a></p>
+</li>
+</ul>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2018/09/02/DNSTunnel/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    DNS Tunnel
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/06/02/IP/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">IP</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            oneWay &copy; 2018 
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+
+                <br>
+
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
