@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>SSH | oneWay</title>
+    
+    
+        <meta name="keywords" content="SSH" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="一、作用ssh（Security Shell）是用来实现安全远程管理的一个协议。相比于telnet，使用ssh能够有效地解决信息泄露的问题。 二、算法及交互过程ssh建立连接主要有以下五个步骤：①协商ssh版本②协商将要使用的各种算法③通过Diffie-Hellman算法得到之后通信所使用的密钥④认证阶段，服务器对客户端进行身份验证⑤认证成功之后，客户端请求发起会话，服务器确认之后即可开始信息交">
+<meta name="keywords" content="SSH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSH">
+<meta property="og:url" content="http://yoursite.com/2018/09/25/SSH/index.html">
+<meta property="og:site_name" content="oneWay">
+<meta property="og:description" content="一、作用ssh（Security Shell）是用来实现安全远程管理的一个协议。相比于telnet，使用ssh能够有效地解决信息泄露的问题。 二、算法及交互过程ssh建立连接主要有以下五个步骤：①协商ssh版本②协商将要使用的各种算法③通过Diffie-Hellman算法得到之后通信所使用的密钥④认证阶段，服务器对客户端进行身份验证⑤认证成功之后，客户端请求发起会话，服务器确认之后即可开始信息交">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-d57b00be17b765fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-6c130d7af2f0e29e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-f2e03a1188bce20c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-b291c2d707f76934.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-12de138065b5c854.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-9aee6fcc98eb313c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-b9c4ed7623def0f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-ee171f025fbc4830.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-4f1d9af5e2bc322e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-3dcf0524979736f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-08e1b02017f78e90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12329802-2d7bbd365d707c62.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-10-08T03:31:52.176Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SSH">
+<meta name="twitter:description" content="一、作用ssh（Security Shell）是用来实现安全远程管理的一个协议。相比于telnet，使用ssh能够有效地解决信息泄露的问题。 二、算法及交互过程ssh建立连接主要有以下五个步骤：①协商ssh版本②协商将要使用的各种算法③通过Diffie-Hellman算法得到之后通信所使用的密钥④认证阶段，服务器对客户端进行身份验证⑤认证成功之后，客户端请求发起会话，服务器确认之后即可开始信息交">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/12329802-d57b00be17b765fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="oneWay" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">oneWay</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="https://www.gravatar.com/avatar/7e4f21ca09ee4e1fbddee4fd4ec87851" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">oneWay</h2>
+            <h3 id="title">none</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Xiamen, China</span>
+            <a id="follow" target="_blank" href="https://github.com/Creator1024">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                8
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                6
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/Creator1024" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            其他
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/09/02/DNSTunnel/">DNS Tunnel</a></li>  <li class="file"><a href="/2018/10/08/SSR/">SSR</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            数据通信
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            协议分析
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/09/01/DNS/">DNS</a></li>  <li class="file"><a href="/2018/09/22/DHCP/">DHCP</a></li>  <li class="file"><a href="/2018/06/02/IP/">IP</a></li>  <li class="file active"><a href="/2018/09/25/SSH/">SSH</a></li>  <li class="file"><a href="/2018/06/01/ARP/">ARP</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            基本概念
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/05/29/LAN/">LAN</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>归档</span></h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>标签</span></h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARP/">ARP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DHCP/">DHCP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS/">DNS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LAN/">LAN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/">SSH</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSR/">SSR</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-SSH" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/数据通信/">数据通信</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据通信/协议分析/">协议分析</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/SSH/">SSH</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/09/25/SSH/">
+            <time datetime="2018-09-25T03:22:12.000Z" itemprop="datePublished">2018-09-25</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            SSH
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <blockquote>
+<h3 id="一、作用"><a href="#一、作用" class="headerlink" title="一、作用"></a>一、作用</h3><p>ssh（Security Shell）是用来实现安全远程管理的一个协议。相比于telnet，使用ssh能够有效地解决信息泄露的问题。</p>
+<h3 id="二、算法及交互过程"><a href="#二、算法及交互过程" class="headerlink" title="二、算法及交互过程"></a>二、算法及交互过程</h3><p>ssh建立连接主要有以下五个步骤：<br>①协商ssh版本<br>②协商将要使用的各种算法<br>③通过Diffie-Hellman算法得到之后通信所使用的密钥<br>④认证阶段，服务器对客户端进行身份验证<br>⑤认证成功之后，客户端请求发起会话，服务器确认之后即可开始信息交互<br><img src="https://upload-images.jianshu.io/upload_images/12329802-d57b00be17b765fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="2-1-协商ssh版本"><a href="#2-1-协商ssh版本" class="headerlink" title="2.1.协商ssh版本"></a>2.1.协商ssh版本</h4><p>①客户端向服务器发起连接请求，ssh协议基于TCP，默认端口为22<br>②服务器把自己的ssh协议版本号发送给客户端<br>③客户端知道了服务器所使用的版本后，选择相同或者能够兼容服务器的版本，将版本信息发送给服务器<br>④服务器判断是否支持客户端要使用的版本，如果支持，将进入算法和密钥的协商阶段，否则关闭此连接<br><img src="https://upload-images.jianshu.io/upload_images/12329802-6c130d7af2f0e29e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="2-2-算法协商"><a href="#2-2-算法协商" class="headerlink" title="2.2.算法协商"></a>2.2.算法协商</h4><p>①客户端发送自己支持的<strong>公钥算法列表</strong>，<strong>加密算法列表</strong>，<strong>MAC算法列表</strong>，<strong>压缩算法列表</strong><br><img src="https://upload-images.jianshu.io/upload_images/12329802-f2e03a1188bce20c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>②服务器回复ack报文确认，并发送自己支持的各种算法列表<br><img src="https://upload-images.jianshu.io/upload_images/12329802-b291c2d707f76934.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="https://upload-images.jianshu.io/upload_images/12329802-12de138065b5c854.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>③双方开始协商要使用的各种算法，这里的协商<strong>以客户端为主</strong> ，按客户端各算法列表从左至右开始匹配（例如加密算法中，最左边的aes128-cbc的优先级是最高的），如果服务器支持相应的算法，则匹配成功，如果匹配到最后都不支持，则协商失败</p>
+<h4 id="2-3-密钥协商"><a href="#2-3-密钥协商" class="headerlink" title="2.3.密钥协商"></a>2.3.密钥协商</h4><p>由于使用的是SSH2.0版本，会话密钥的协商方式使用Diffie-Hellman算法。这里简单地介绍一下这个算法：<br>Diffie-Hellman算法是Whitefield Diffie和Martin Hellman在1976年公布的一种<strong>密钥交换算法</strong>，它的有效性依赖于计算离散对数的难度<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; 现客户端A要和服务器B交换密钥：</span><br><span class="line">&gt; 服务器B规定一个素数P，一个整数G，G是P的原根</span><br><span class="line">&gt; 客户端生成自己的私用密钥a（a&lt;q），并计算公开密钥e=G^a mod P，把e发送给服务器B</span><br><span class="line">&gt; 服务器生成自己的私用密钥b（b&lt;q），并计算公开密钥f=G^b mod P，把f发送给客户端A</span><br><span class="line">&gt; 客户端A可以通过自己的私用密钥a和服务器的公开密钥f算出共享密钥 K=f^a mod P</span><br><span class="line">&gt; 服务器B可以通过自己的私用密钥b和客户端的公开密钥e算出共享密钥 K=e^b mod P</span><br><span class="line">&gt; </span><br><span class="line">&gt; 二者计算的结果K值是一致的，从而完成了密钥交换</span><br><span class="line">&gt; a和b对其他人是保密的，攻击者只能离散对数来确定密钥</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>大致协商过程如下，由客户端首先发起请求<br><img src="https://upload-images.jianshu.io/upload_images/12329802-9aee6fcc98eb313c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><strong>①</strong>客户端发出的第一个报文说明了密钥交互参数：Min、Number of Bits、Max<br><img src="https://upload-images.jianshu.io/upload_images/12329802-b9c4ed7623def0f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><strong>②</strong>服务器端收到客户端DH请求后，设定P和G发送给客户端，P是一个大素数，满足客户端刚刚发来的那些要求，G是大于1的数，通常取2或者5<br><img src="https://upload-images.jianshu.io/upload_images/12329802-ee171f025fbc4830.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><strong>③</strong>客户端收到P和G后，生成自己的私钥a，并根据a计算出自己的公钥e，并把e发送给服务器端<br><img src="https://upload-images.jianshu.io/upload_images/12329802-4f1d9af5e2bc322e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><strong>④</strong>服务器也会生成自己的私钥b并计算出公钥f，收到客户端发来的e后，利用b和e生成共享密钥K，接着把f发给客户端，用于客户端计算共享密钥K<br><img src="https://upload-images.jianshu.io/upload_images/12329802-3dcf0524979736f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>KEX DH host key是服务器的主机公钥（通常是RSA）<br>KEX DH H Signature是服务器用主机私钥对计算出的哈希值H进行签名的结果<br>H的值是将客户端初始报文、服务器初始报文、客户端DH公钥、服务器DH公钥等参数进行哈希的结果  </p>
+<p><strong>⑤</strong>客户端接受到f之后，计算出共享密钥K，然后服务器一样计算出H的值，并用服务器的公钥解密KEX DH H Signature，将结果与自己计算的H值比较，如果一致，就会向服务器发送New Keys报文，双方密钥交换成功。计算出的H作为会话ID，K作为之后通信过程中的加密密钥</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/12329802-08e1b02017f78e90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="2-4-认证及交互阶段"><a href="#2-4-认证及交互阶段" class="headerlink" title="2.4.认证及交互阶段"></a>2.4.认证及交互阶段</h4><p>共享密钥协商成功之后，数据报文都被加密，只能看到加密后的结果：<br><img src="https://upload-images.jianshu.io/upload_images/12329802-2d7bbd365d707c62.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>认证方式有两种：</p>
+<ul>
+<li>用户名密码认证<br><strong>①</strong>客户端发起认证请求，服务器回复其公钥<br><strong>②</strong>客户端使用服务器的公钥将其用户名密码加密后发给服务器<br><strong>③</strong>服务器使用自己的私钥解密，验证结果</li>
+<li>公钥私钥认证<br><strong>①</strong>客户端发送登录的ip和用户名，服务器识别该客户端的公钥（在authorized_keys文件中），利用该公钥加密一段随机字符串发送刚给客户端<br><strong>②</strong>客户端使用私钥解密，得到随机字符串后发送给服务器<br><strong>③</strong>服务器收到该字符串，若与其之前生成的一致，即说明公私钥匹配，认证成功<br>注：要使用该认证方式需要事先在客户端生成公私钥，并把公钥存放在服务器上</li>
+</ul>
+<h3 id="三、SSH相关应用"><a href="#三、SSH相关应用" class="headerlink" title="三、SSH相关应用"></a>三、SSH相关应用</h3><h4 id="3-1-Linux的下ssh"><a href="#3-1-Linux的下ssh" class="headerlink" title="3.1.Linux的下ssh"></a>3.1.Linux的下ssh</h4><p>linux系统中，一般默认都安装了ssh客户端及服务端。ssh服务的相关进程是<strong>sshd</strong>，可以使用<strong>servcie sshd status</strong>(CentOS6)查看当前该服务的运行状态。</p>
+<h5 id="3-1-1-ssh-client"><a href="#3-1-1-ssh-client" class="headerlink" title="3.1.1.ssh  client"></a>3.1.1.ssh  client</h5><ul>
+<li>最简单的登录：ssh user@ip，如ssh <a href="mailto:root@1.1.1.1" target="_blank" rel="noopener">root@1.1.1.1</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; ssh命令有关参数：</span><br><span class="line">&gt; -A：开启认证代理连接转发功能</span><br><span class="line">&gt; -a：关闭认证代理连接转发功能</span><br><span class="line">&gt; -b：使用本地指定地址作为对应连接的源ip</span><br><span class="line">&gt; -f：后台执行ssh指令</span><br><span class="line">&gt; -i：指定身份文件</span><br><span class="line">&gt; -p：指定远程服务器端口</span><br><span class="line">&gt; -N：不执行远程指令</span><br><span class="line">&gt; </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果远程服务器默认端口不是22（可以设置一个高位端口，比如10024），则需要指定端口：ssh user@ip -p 10024</li>
+</ul>
+<p>如果我们要经常使用某个远程主机，可以通过配置$HOME/.ssh/config文件更方便地进行连接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; vim ~/.ssh/config  #当前是root用户</span><br><span class="line">&gt; Host test</span><br><span class="line">&gt;     StrictHostKeyChecking no  #第一次连接新的主机时，自动接收公钥，无需提示。</span><br><span class="line">&gt;     HostName 1.1.1.1</span><br><span class="line">&gt;     Port 22</span><br><span class="line">&gt;     ForwardAgent yes   </span><br><span class="line">&gt;     User root</span><br><span class="line">&gt;     Controlpath ~/.ssh/ssh-%r@%h:%p.sock</span><br><span class="line">&gt; </span><br><span class="line">&gt; 以后只需要ssh test即可.</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>ssh客户端的读取顺序如下<br>①命令行<br>②$HOME/.ssh/config<br>③/etc/ssh/ssh_config（所有用户使用的配置文件）</p>
+<h5 id="3-1-2-ssh-server"><a href="#3-1-2-ssh-server" class="headerlink" title="3.1.2. ssh server"></a>3.1.2. ssh server</h5><p>配置文件：/etc/ssh/sshd_config<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; Port 22    #ssh监听的端口，可以写多个</span><br><span class="line">&gt; ListenAddress 10.104.45.112   #可以指定监听的具体地址，默认是注释的，表示监听0.0.0.0</span><br><span class="line">&gt; Protocol 2   #使用sshv2</span><br><span class="line">&gt; PasswordAuthentication yes    #密码认证</span><br><span class="line">&gt; X11Forwarding yes   #允许本地主机上执行远程主机的GUI程序</span><br><span class="line">&gt; PermitRootLogin yes  #允许root登录</span><br><span class="line">&gt; AllowUsers xxx #只允许xxx用户登录的用户</span><br><span class="line">&gt; ...</span><br><span class="line">&gt; </span><br><span class="line">&gt; 修改完配置文件之后，需要重启服务才能生效</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<h4 id="3-2-利用ssh反向代理访问内网主机"><a href="#3-2-利用ssh反向代理访问内网主机" class="headerlink" title="3.2.利用ssh反向代理访问内网主机"></a>3.2.利用ssh反向代理访问内网主机</h4><p>如果要远程访问一台内网主机，有两种方式：</p>
+<ul>
+<li>通过静态NAT或PAT将内网主机的地址/端口映射到公网</li>
+<li>借助一台公网服务器，利用ssh反向代理来访问内网主机<h5 id="3-2-1-方法一：静态NAT或PAT"><a href="#3-2-1-方法一：静态NAT或PAT" class="headerlink" title="3.2.1.方法一：静态NAT或PAT"></a>3.2.1.方法一：静态NAT或PAT</h5>一般只有企业的网络管理员能使用这种方法，可以通过静态NAT将内网主机的地址转化为一个公网地址（一般拥有大量公网地址才会这么做），或者使用PAT将内网主机的端口映射到公网地址的某个端口，这里就简单地给出路由器上的配置：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">#静态NAT：将内网主机地址192.168.1.100映射为公网地址1.1.1.1</span></span><br><span class="line">&gt; Cisco Router：</span><br><span class="line">&gt; ip nat inside source static <span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span> <span class="number">1.1</span><span class="number">.1</span><span class="number">.1</span> </span><br><span class="line">&gt; HuaWei Router：</span><br><span class="line">&gt; nat static <span class="keyword">global</span> <span class="number">1.1</span><span class="number">.1</span><span class="number">.1</span> inside <span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span></span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="comment">#PAT：内网主机的22端口映射到公网地址22122端口</span></span><br><span class="line">&gt; Cisco Router：</span><br><span class="line">&gt; ip nat inside source static tcp <span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span> <span class="number">22</span> <span class="number">1.1</span><span class="number">.1</span><span class="number">.1</span> <span class="number">22122</span> </span><br><span class="line">&gt; HuaWei Router：</span><br><span class="line">&gt; nat static protocol tcp <span class="keyword">global</span> current-interface <span class="number">22122</span> inside <span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span> <span class="number">22</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<h5 id="3-2-2-方法二：ssh反向代理"><a href="#3-2-2-方法二：ssh反向代理" class="headerlink" title="3.2.2.方法二：ssh反向代理"></a>3.2.2.方法二：ssh反向代理</h5><p>大部分情况下，我们无法管理公网地址，接下来介绍第二种方法，此方法需要借助一台公网服务器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; 公网主机A： ip——1.1.1.1  sshd端口——22</span><br><span class="line">&gt; 内网主机B： ip——192.168.1.100  sshd端口——22</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>首先在内主机B上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; ssh -NfR 6666:localhost:22 root@1.1.1.1 </span><br><span class="line">&gt; 将A的6666端口和B的22端口绑定</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>接着在外网主机A上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; netstat -ano | grep 1234</span><br><span class="line">&gt; tcp  0  0 127.0.0.1:1234     0.0.0.0:*    LISTEN  off (0.00/0/0)</span><br><span class="line">&gt; 可以看到本地在监听1234端口</span><br><span class="line">&gt; 接着使用以下命令就可以从公网主机A上访问内网主机B了</span><br><span class="line">&gt; ssh localhost -p 1234</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>通过以上方式，已经可以实现我们的需求，接下来可以做一些优化：</p>
+<ul>
+<li>使用公私钥登录，无需在登录的时候输入密码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; 第一步：在内网服务器B上生成公私钥</span><br><span class="line">&gt; ssh-keygen -t rsa   #一直按回车，使用默认选项即可</span><br><span class="line">&gt; 成功后在~/.ssh/目录下就会生成id_rsa（私钥）和id_rsa.pub （公钥文件）</span><br><span class="line">&gt; </span><br><span class="line">&gt; 第二步：将B的公钥放到外网主机A的~/.ssh/authorized_keys</span><br><span class="line">&gt; ssh root@1.1.1.1 &apos;mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys&apos; &lt; ~/.ssh/id_rsa.pub</span><br><span class="line">&gt; 或者使用</span><br><span class="line">&gt; ssh-copy-id root@1.1.1.1</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>使用autossh维护反向连接<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; yum install -y autossh</span><br><span class="line">&gt; ...</span><br><span class="line">&gt; autossh -M 8888 -NR 1234:localhost:22 root@1.1.1.1 -p 22</span><br><span class="line">&gt; autossh的命令跟ssh差不多，默认后台运行，所以无需加-f</span><br><span class="line">&gt; -M选项表示维护程序监听8888端口，保证连接的可用性，如果断掉，则会重新连接</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2018/10/08/SSR/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    SSR
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/09/22/DHCP/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">DHCP</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            oneWay &copy; 2018 
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+
+                <br>
+
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
